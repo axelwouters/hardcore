@@ -13,7 +13,7 @@ module.exports = (HardcoreModel, OrderModel, UserModel, OrderDetailModel) => {
             if (!req.body.basket) {//1. Le joueur (représenté par la requête req) commence par présenter son panier (req.body.basket) à l’univers.
             //2.Condition initiale
             //Si le panier est absent ou invalide, le marchand refuse de commencer la mission et affiche
-                return res.status(400).json({ status: 400, msg: "Le panier est invalide ou manquant" });
+                return res.status(400).json({ status: 400, msg: "Le panier est invalide ou manquant" })
             }
     
             let totalAmount = 0;
