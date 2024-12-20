@@ -1,4 +1,4 @@
-const stripe = require('stripe')('sk_test_51PwPk4P8IUFD1Oi7oaghtzvNLuLsqHqSf3LITl819E5oM2519a3Pqx8OPmlN2C9P5isgJp8Sjyies4gib732xvOD00faqsPnaL')
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const withAuth = require('../middleware/withAuth')
 
 module.exports = (HardcoreModel, OrderModel, UserModel, OrderDetailModel) => {
