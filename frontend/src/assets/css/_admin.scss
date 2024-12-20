@@ -1,0 +1,218 @@
+
+#admin {
+  padding: 10px;
+  font-size: 14px;
+  padding-top: 6rem;
+
+  
+  h2{
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .addhardcore{
+    font-size: 1.5rem;
+    padding-bottom: 0.4em;
+    margin: auto;
+  }
+
+  .modifie{
+    color: rgb(255, 255, 255);
+    background-color: $background-color2;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: solid 2px black;
+    text-align: center;
+    width: 100%;
+  }
+
+  h3{
+    padding-top: 1rem;
+    font-size: 1.4rem;
+  }
+
+  h4{
+    font-size: 1rem;
+  }
+
+  .tableHardcore {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+    &.first {
+      margin-top: 15px;
+    }
+
+    th, td {
+      border: 1px solid $secondary-color;
+      padding: 6px;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    th {
+      background-color: $background-color1;
+      font-weight: bold;
+    }
+
+    img {
+      max-width: 60px;
+      height: auto;
+    }
+
+    a {
+      
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+
+    button {
+      @include button-suppresion();
+      display: block;
+      width: 100%;
+      margin-top: 5px;
+    }
+  }
+
+  .FlexTable {
+    > div {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #admin{
+    padding: 20px;
+    font-size: 16px;
+    padding-top: 8rem;
+
+    h2{
+      font-size: 2.5rem;
+      padding-bottom: 1rem;
+    }
+
+    .addhardcore{
+      font-size: 1.8rem;
+      padding-bottom: 0.6em;
+    }
+
+    .modifie{
+      font-size: 1.7rem;
+      padding: 10px;
+    }
+
+    h3{
+      padding-top: 1.5rem;
+      font-size: 1.6rem;
+    }
+
+    h4{
+      font-size: 1.3rem;
+    }
+
+    .tableHardcore{
+      margin-bottom: 30px;
+
+      &.first{
+        margin-top: 25px;
+      }
+
+      th, td{
+        padding: 10px;
+        text-align: center;
+      }
+
+      img{
+        max-width: 80px;
+      }
+
+      a{
+        margin-bottom: 8px;
+      }
+
+      button{
+        padding: 1rem;
+        font-size: 1.1rem;
+        
+      }
+    }
+
+      .FlexTable{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        >div{
+          width: 48%;
+          margin-bottom: 30px;
+        }
+      }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #admin{
+    padding: 30px;
+    font-size: 18px;
+    padding-top: 10rem;
+
+      h2{
+        font-size: 3rem;
+        padding-bottom: 1.5rem;
+      }
+
+      .addhardcore{
+        font-size: 2rem;
+        padding-bottom: 0.8em;
+      }
+
+      .modifie{
+        font-size: 1.9rem;
+        padding: 15px;
+      }
+
+      h3{
+        padding-top: 2rem;
+        font-size: 1.8rem;
+      }
+
+      h4{
+        font-size: 1.5rem;
+      }
+
+      .tableHardcore{
+        margin-bottom: 40px;
+
+        &.first{
+          margin-top: 35px;
+        }
+      }
+
+      th, td{
+        padding: 15px;
+      }
+
+      img{
+        max-width: 100px;
+      }
+
+      a{
+        margin-bottom: 10px;
+      }
+
+      button{
+        padding: 15px;
+        font-size: 1.2rem;
+      }
+  }
+
+  .FlexTable{
+    >div{
+      width: 31%;
+      margin-bottom: 40px;
+    }
+  }
+}

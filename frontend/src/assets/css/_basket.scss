@@ -1,0 +1,127 @@
+#basket{
+   padding: 10px;
+
+    h2{
+        padding-top: 5rem;
+        margin-bottom: 15px;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .basketTable{
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th{
+        background-color: $primary-color;
+        padding: 7px;
+        text-align: left;
+        border: 1px solid;
+        font-weight: bold;
+        color: $background-color1;
+    }
+
+    td{
+        text-align: center;
+        border: 1px solid;
+    }
+
+    .red-button{
+        font-weight: bold;
+        width: 100%;
+    }
+
+    .moins, .plus{
+        font-size: 1rem;
+        width: 35%;
+    }
+
+    .payer{
+        width: 50%;
+        padding: 0.5rem;
+        font-weight: bold;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #basket{
+        padding: 20px;
+
+        h2{
+            font-size: 2.5rem;
+            padding-top: 6rem;
+            margin-bottom: 25px;
+        }
+
+        .basketTable{
+            font-size: 1.1rem;
+        }
+        
+        th, td{
+            padding: 12px;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .red-button{
+            padding: 8px;
+            font-size: 1.1rem;
+        }
+
+        .moins, .plus{
+            font-size: 1.1rem;
+            width: 40px;
+            padding: 8px;
+        }
+
+        .payer{
+            width: 200px;
+            padding: 0.75rem;
+            font-size: 1.2rem;
+            margin-top: 25px;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #basket{
+        padding: 30px;
+
+        h2{
+            font-size: 3rem;
+            padding-top: 7rem;
+            margin-bottom: 35px;
+        }
+
+            .basketTable{
+                font-size: 1.2rem;
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            th, td{
+                padding: 15px;
+                font-size: 1.4rem;
+            }
+
+            .red-button{
+                padding: 10px;
+                font-size: 1.2rem;
+            }
+
+            .moins, .plus{
+                font-size: 1.2rem;
+                width: 45px;
+                padding: 10px;
+            }
+
+            .payer{
+                width: 250px;
+                padding: 1rem;
+                font-size: 1.3rem;
+                margin-top: 35px;
+            }
+    }
+}

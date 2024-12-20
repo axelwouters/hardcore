@@ -1,0 +1,186 @@
+#navigation{
+
+  >nav{
+    top:0;
+      z-index: 100;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      min-height: 4.5rem;     
+      >h1{               
+          color: $background-color1;
+          text-align: center;
+          
+      }
+      background-color: $primary-color;
+      color:$background-color1;   
+      >img{//logo            
+          max-width: 15%;                     
+          
+
+      }
+      >ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;        
+      visibility: hidden;
+      bottom: 0;
+      height: 100vh;        
+      background-color: $primary-color ;
+      
+      >li{
+         
+          >a{
+              text-decoration: none;
+              padding: 0 .3rem;
+              color:inherit;
+              display: block;
+              padding: 1.5rem;
+              font-size: 5vw;  
+              
+              }
+              &::after{//trait sous les titres du menu
+                  content: "";
+                  display: block;
+                  margin: 0 auto;
+                  width: 3vw;
+                  height: .063rem;
+                  background-color: $background-color1 ;
+              } 
+          }
+      }
+      >button{
+          width: 2.5rem;
+          height: 2.5rem;
+          background: transparent;
+          border: none;
+          color: inherit;
+          position: fixed;
+          top: 1rem;
+          right: 1rem;
+          
+          span,//barre du burger
+          span::before,//barre du burger
+          span::after//barre du burger
+          {
+              display: block;
+              width: 2.5rem;
+              height: 0.19rem;
+              position: relative;
+              border-radius: 0.19rem;
+              background: $background-color1 ;
+              transition: all .5s ease-in-out; 
+          }
+          span::before,//barre du burger
+          span::after//barre du burger
+          {
+              content: "";
+              position: absolute;
+              left: 0;
+          }
+          span::before{
+              transform: translateY(-0.75rem);
+          }
+          span::after{
+              transform: translateY(0.75rem);
+          }
+      }      
+  }
+  .show-nav ul{//montre le menu burger        
+      width: 100vw;
+      visibility: visible;
+  }  
+  .show-nav span::before{
+      transform: rotate(45deg);
+  }
+  .show-nav span::after{
+      transform: rotate(-45deg);
+  }
+  .show-nav span{
+      width: 0;
+      background: transparent;
+  }
+
+}
+
+@media screen and (min-width: 768px) {
+    #navigation{
+        >nav{
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            padding: 0 2rem;
+
+            >h1{
+                font-size: 1.5rem;
+                margin-right: 2rem;
+            }
+
+            > img{
+                max-width: 10%;
+                margin-left: -2rem;
+            }
+
+            >ul{
+                position: static;
+                visibility: visible;
+                flex-direction: row;
+                height: auto;
+                background-color: transparent;
+
+                >li{
+                    margin: 0 1rem;
+
+                    >a{
+                        font-size: 1rem;
+                        padding: 1rem 0.3rem; 
+                    }
+                    &::after{
+                        display: none;
+                    }
+                }
+            }
+            >button{
+                display: none;
+            }
+        }
+        .show-nav ul{
+            width: auto;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #navigation{
+        >nav{
+            padding: 0 4rem;
+
+            >h1{
+                font-size: 2rem;
+                margin-right: 3rem;
+            }
+
+            >img{
+                max-width: 8%;
+                margin-left: -4rem;
+            }
+            
+            >ul{
+                >li{
+                    margin: 0 1.5rem;
+
+                    >a{
+                        font-size: 1.2rem;
+                        padding: 1.2rem 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

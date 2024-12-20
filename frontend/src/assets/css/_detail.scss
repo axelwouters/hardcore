@@ -1,0 +1,184 @@
+#detail{
+    max-width: 800px;
+    padding: 20px;
+    margin: 0 auto;
+
+
+        >h2{
+            
+            padding-bottom: 2rem;
+            padding-top: 8rem;
+            margin-bottom: 20px;
+        }
+
+            >.comeBack{
+                display: inline-block;
+                font-size: 24px;
+                color: black;
+                margin-bottom: 20px;
+                transition: 0.3s ease;
+            }
+
+                >.hardcoreDetail{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    border-radius: 8px;
+                    padding: 20px;
+                    margin-bottom: 20px;
+                }
+
+                    img{
+                        max-width: 100%;
+                        height: auto;
+                        border-radius: 8px;
+                        margin-bottom: 15px;
+                    }
+
+                    h3{
+                        font-size: 1.4rem;
+                        margin-bottom: 10px;
+                        text-align: center;
+                        font-size: 1.7rem;
+                    }
+
+                        p{
+                            line-height: 1.5;
+                            font-size: 1.3rem;
+                            text-align: justify;
+                        }
+                    
+                    form{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-top: 20px;
+                    }
+
+                        input[type='text']{
+                            padding: 10px;
+                            font-size: 16px;
+                            border: 1px solid;
+                            border-radius: 4px 0 0 4px;
+                            flex-grow: 1;
+                            max-width: 100px;
+                        }
+
+                        .addToBasket{
+                            border: solid;
+                            padding: 10px 15px;
+                            font-size: 16px;
+                            border-radius: 0 4px 4px 0;
+                            cursor: pointer;
+                            transition: 0.3s ease;
+                        }
+
+                        .error{
+                            color: #f44336;
+                            text-align: center;
+                            margin-top: 10px;
+                        }
+
+
+}
+@media screen and (min-width: 768px) {
+    #detail{
+        padding: 30px;
+
+        >h2{
+            font-size: 2.5rem;
+            padding-top: 10rem;
+            padding-bottom: 3rem;
+        }
+
+        >.comeBack{
+            font-size: 28px;
+        }
+
+        >.hardcoreDetail{
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 30px;
+        }
+
+        img{
+            max-width: 45%;
+            margin-bottom: 0;
+            margin-right: 30px;
+        }
+
+        .product-info{
+            flex: 1;
+        }
+
+        h3{
+            font-size: 2rem;
+            text-align: left;
+        }
+
+        p{
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        input[type='text']{
+            max-width: 120px;
+        }
+
+        .addToBasket{
+            padding: 12px 20px;
+            font-size: 18px;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #detail{
+        max-width: 1000px;
+        padding: 40px;
+
+        >h2{
+            font-size: 3rem;
+            padding-top: 12rem;
+            padding-bottom: 4rem;
+        }
+
+        >.comeBack{
+            font-size: 30px;
+        }
+
+        >.hardcoreDetail{
+            padding: 40px;
+        }
+
+        img{
+            max-width: 50%;
+            margin-right: 40px;
+        }
+
+        h3{
+            font-size: 2.5rem;
+        }
+
+        p{
+            font-size: 1.6rem;
+            line-height: 1.7;
+        }
+
+        form{
+            margin-top: 30px;
+        }
+
+        input[type='text']{
+            max-width: 150px;
+            padding: 12px;
+            font-size: 18px;
+        }
+
+        .addToBasket{
+            padding: 14px 25px;
+            font-size: 20px;
+        }
+    }
+}

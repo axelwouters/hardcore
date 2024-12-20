@@ -1,0 +1,131 @@
+#modifier{
+    >h2{
+        padding-top: 5rem;
+        text-align: center;
+        padding-bottom: 1rem;
+        font-size: 2rem;
+    }
+
+        >.b-form{
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+            >.b-form input{
+                width: 100%;
+                padding: 0.5rem;
+                margin-bottom: 0.6rem;
+                border: 1px solid;
+                border-radius: 4px;
+            }
+
+                >.b-form textarea{
+                    font-size: 1.1rem;
+                }
+
+                    >.b-form button{
+                        width: 100%;
+                        padding: 0.5rem;
+                        background-color: $background-color2;
+                        color: $background-color1;
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                        border-radius: 4px;
+                        cursor: pointer;
+                    }
+
+                        >.b-form textarea{
+                            font-size: 1.1rem;
+                        }
+        >img{
+            width: 100%;
+        }
+        
+}
+
+// Tablet styles (768px and up)
+@media screen and (min-width: 768px) {
+    #modifier{
+        >h2{
+            padding-top: 8rem;
+            padding-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+            >.b-form{
+                padding: 2.5rem;
+                margin-left: 8.5rem;
+                max-width: 500px;
+
+                input{
+                    padding: 0.7rem;
+                    margin-bottom: 1rem;
+                    font-size: 1.1rem;
+                }
+
+                textarea{
+                    font-size: 1.2rem;
+                    padding: 0.7rem;
+                    margin-bottom: 1rem;
+                }
+
+                button{
+                    padding: 0.7rem;
+                    font-size: 1.4rem;
+                }
+            }
+
+            >img{
+            margin: 1.5rem auto;
+            max-width: 100%;
+            }
+    }
+  }
+
+@media screen and (min-width: 1200px) {
+    #modifier{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0 5%;
+
+            >h2{
+                width: 100%;
+                padding-top: 10rem;
+                padding-bottom: 2rem;
+                font-size: 3rem;
+            }
+
+            >.b-form{
+                flex: 0 0 45%;
+                margin-left: 0;
+                max-width: none;
+                padding: 3rem;
+                margin-left: 20rem;
+
+                input, textarea{
+                    padding: 0.8rem;
+                    margin-bottom: 1.2rem;
+                    font-size: 1.2rem;
+                }
+
+                button{
+                    padding: 0.8rem;
+                    font-size: 1.5rem;
+                }
+            }
+
+            >img{
+                flex: 0 0 45%;
+                margin: 0;
+                max-width: 45%;
+                margin-left: 20rem;
+                object-fit: cover;
+                align-self: center;
+            }
+    }
+}

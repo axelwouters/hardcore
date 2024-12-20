@@ -1,0 +1,1522 @@
+#navigation > nav {
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  min-height: 4.5rem;
+  background-color: #000000;
+  color: #ffffff;
+}
+#navigation > nav > h1 {
+  color: #ffffff;
+  text-align: center;
+}
+#navigation > nav > img {
+  max-width: 15%;
+}
+#navigation > nav > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  visibility: hidden;
+  bottom: 0;
+  height: 100vh;
+  background-color: #000000;
+}
+#navigation > nav > ul > li > a {
+  text-decoration: none;
+  padding: 0 0.3rem;
+  color: inherit;
+  display: block;
+  padding: 1.5rem;
+  font-size: 5vw;
+}
+#navigation > nav > ul > li::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 3vw;
+  height: 0.063rem;
+  background-color: #ffffff;
+}
+#navigation > nav > button {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: none;
+  color: inherit;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+#navigation > nav > button span,
+#navigation > nav > button span::before,
+#navigation > nav > button span::after {
+  display: block;
+  width: 2.5rem;
+  height: 0.19rem;
+  position: relative;
+  border-radius: 0.19rem;
+  background: #ffffff;
+  transition: all 0.5s ease-in-out;
+}
+#navigation > nav > button span::before,
+#navigation > nav > button span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+#navigation > nav > button span::before {
+  transform: translateY(-0.75rem);
+}
+#navigation > nav > button span::after {
+  transform: translateY(0.75rem);
+}
+#navigation .show-nav ul {
+  width: 100vw;
+  visibility: visible;
+}
+#navigation .show-nav span::before {
+  transform: rotate(45deg);
+}
+#navigation .show-nav span::after {
+  transform: rotate(-45deg);
+}
+#navigation .show-nav span {
+  width: 0;
+  background: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  #navigation > nav {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+  #navigation > nav > h1 {
+    font-size: 1.5rem;
+    margin-right: 2rem;
+  }
+  #navigation > nav > img {
+    max-width: 10%;
+    margin-left: -2rem;
+  }
+  #navigation > nav > ul {
+    position: static;
+    visibility: visible;
+    flex-direction: row;
+    height: auto;
+    background-color: transparent;
+  }
+  #navigation > nav > ul > li {
+    margin: 0 1rem;
+  }
+  #navigation > nav > ul > li > a {
+    font-size: 1rem;
+    padding: 1rem 0.3rem;
+  }
+  #navigation > nav > ul > li::after {
+    display: none;
+  }
+  #navigation > nav > button {
+    display: none;
+  }
+  #navigation .show-nav ul {
+    width: auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #navigation > nav {
+    padding: 0 4rem;
+  }
+  #navigation > nav > h1 {
+    font-size: 2rem;
+    margin-right: 3rem;
+  }
+  #navigation > nav > img {
+    max-width: 8%;
+    margin-left: -4rem;
+  }
+  #navigation > nav > ul > li {
+    margin: 0 1.5rem;
+  }
+  #navigation > nav > ul > li > a {
+    font-size: 1.2rem;
+    padding: 1.2rem 0.5rem;
+  }
+}
+#footer {
+  padding: 20px;
+  font-size: 14px;
+}
+#footer > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+#footer ul li {
+  margin-bottom: 10px;
+}
+#footer ul li a {
+  text-decoration: none;
+  color: #333;
+}
+#footer ul li a p {
+  margin: 0;
+}
+#footer div > div {
+  text-align: center;
+}
+#footer div > div .italic {
+  font-style: italic;
+  display: block;
+  margin-bottom: 5px;
+}
+#footer div > div .bold {
+  font-weight: bold;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  #footer {
+    padding: 30px;
+    font-size: 16px;
+  }
+  #footer > div {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  #footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0;
+    text-align: left;
+  }
+  #footer ul li {
+    margin-right: 20px;
+    margin-bottom: 15px;
+  }
+  #footer div > div {
+    text-align: right;
+  }
+}
+/*Home 320px*/
+#bienvenue {
+  padding: 15px;
+}
+#bienvenue h1 {
+  font-size: 1.8rem;
+}
+#bienvenue > section > h2 {
+  margin-top: 4rem;
+}
+#bienvenue > section > .collage-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+#bienvenue > section > .collage-gallery > .gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+}
+#bienvenue > section > .collage-gallery > .gallery-item > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  #bienvenue {
+    padding: 3.5rem;
+  }
+  #bienvenue h1 {
+    font-size: 3rem;
+  }
+  #bienvenue > section > h2 {
+    margin-top: 5rem;
+    padding-bottom: 1rem;
+    font-size: 3rem;
+  }
+  #bienvenue > section > .collage-gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+  #bienvenue > section > .collage-gallery > .gallery-item {
+    aspect-ratio: 3/2;
+  }
+  #bienvenue > section > .collage-gallery > .gallery-item > img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #bienvenue {
+    padding: 5rem;
+  }
+  #bienvenue h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+  #bienvenue > section > h2 {
+    margin-top: 6rem;
+    padding-bottom: 1.5rem;
+    font-size: 3.5rem;
+    text-align: center;
+  }
+  #bienvenue > section > h2 > .collage-gallery {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+  #bienvenue > section > h2 > .collage-gallery > .gallery-item {
+    aspect-ratio: 16/9;
+    transition: transform 0.3s ease;
+  }
+  #bienvenue > section > h2 > .collage-gallery > .gallery-item > img {
+    transition: filter 0.3s ease;
+  }
+}
+.register-form {
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-form button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: #ff0000;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .register-form {
+    max-width: 500px;
+    padding: 30px;
+    margin-left: 5rem;
+  }
+  .register-form .register-form h2 {
+    font-size: 24px;
+  }
+  .register-form .register-form input,
+  .register-form .register-form button {
+    padding: 12px;
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .register-form {
+    max-width: 600px;
+    padding: 40px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .register-form .register-form h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  .register-form .register-form input {
+    padding: 15px;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .register-form .register-form button {
+    padding: 15px;
+    font-size: 20px;
+  }
+  .error-message {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+}
+#login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+#login-container > .login-form {
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px;
+  width: 100%;
+  max-width: 400px;
+}
+#login-container > .login-form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+#login-container > .login-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid;
+  border-radius: 4px;
+}
+#login-container > .login-form button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#login-container > .login-form button:hover {
+  background-color: #008ba3;
+}
+#login-container > .error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  #login-container > .login-form {
+    padding: 2.5rem;
+    max-width: 500px;
+  }
+  #login-container > .login-form h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  #login-container > .login-form input {
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  #login-container > .login-form button {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  #login-container .error-message {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #login-container {
+    background-color: #e0e0e0;
+  }
+  #login-container > .login-form {
+    padding: 3rem;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #login-container > .login-form:hover {
+    transform: translate(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  #login-container > .login-form h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  #login-container > .login-form input {
+    padding: 1rem;
+    font-size: 1.3rem;
+    transition: border-color 0.3s ease;
+  }
+  #login-container > .login-form input:focus {
+    border-color: #00bcd4;
+    outline: none;
+  }
+  #login-container > .login-form button {
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+  #login-container .error-message {
+    font-size: 1.1rem;
+  }
+}
+#admin {
+  padding: 10px;
+  font-size: 14px;
+  padding-top: 6rem;
+}
+#admin h2 {
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+#admin .addhardcore {
+  font-size: 1.5rem;
+  padding-bottom: 0.4em;
+  margin: auto;
+}
+#admin .modifie {
+  color: rgb(255, 255, 255);
+  background-color: #2ca2e6;
+  font-size: 1.5rem;
+  text-decoration: none;
+  border: solid 2px black;
+  text-align: center;
+  width: 100%;
+}
+#admin h3 {
+  padding-top: 1rem;
+  font-size: 1.4rem;
+}
+#admin h4 {
+  font-size: 1rem;
+}
+#admin .tableHardcore {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+#admin .tableHardcore.first {
+  margin-top: 15px;
+}
+#admin .tableHardcore th, #admin .tableHardcore td {
+  border: 1px solid #002E5D;
+  padding: 6px;
+  text-align: left;
+  font-weight: bold;
+}
+#admin .tableHardcore th {
+  background-color: #ffffff;
+  font-weight: bold;
+}
+#admin .tableHardcore img {
+  max-width: 60px;
+  height: auto;
+}
+#admin .tableHardcore a {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+#admin .tableHardcore button {
+  background-color: #b22222;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+}
+#admin .FlexTable > div {
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  #admin {
+    padding: 20px;
+    font-size: 16px;
+    padding-top: 8rem;
+  }
+  #admin h2 {
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+  }
+  #admin .addhardcore {
+    font-size: 1.8rem;
+    padding-bottom: 0.6em;
+  }
+  #admin .modifie {
+    font-size: 1.7rem;
+    padding: 10px;
+  }
+  #admin h3 {
+    padding-top: 1.5rem;
+    font-size: 1.6rem;
+  }
+  #admin h4 {
+    font-size: 1.3rem;
+  }
+  #admin .tableHardcore {
+    margin-bottom: 30px;
+  }
+  #admin .tableHardcore.first {
+    margin-top: 25px;
+  }
+  #admin .tableHardcore th, #admin .tableHardcore td {
+    padding: 10px;
+    text-align: center;
+  }
+  #admin .tableHardcore img {
+    max-width: 80px;
+  }
+  #admin .tableHardcore a {
+    margin-bottom: 8px;
+  }
+  #admin .tableHardcore button {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+  #admin .FlexTable {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  #admin .FlexTable > div {
+    width: 48%;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #admin {
+    padding: 30px;
+    font-size: 18px;
+    padding-top: 10rem;
+  }
+  #admin h2 {
+    font-size: 3rem;
+    padding-bottom: 1.5rem;
+  }
+  #admin .addhardcore {
+    font-size: 2rem;
+    padding-bottom: 0.8em;
+  }
+  #admin .modifie {
+    font-size: 1.9rem;
+    padding: 15px;
+  }
+  #admin h3 {
+    padding-top: 2rem;
+    font-size: 1.8rem;
+  }
+  #admin h4 {
+    font-size: 1.5rem;
+  }
+  #admin .tableHardcore {
+    margin-bottom: 40px;
+  }
+  #admin .tableHardcore.first {
+    margin-top: 35px;
+  }
+  #admin th, #admin td {
+    padding: 15px;
+  }
+  #admin img {
+    max-width: 100px;
+  }
+  #admin a {
+    margin-bottom: 10px;
+  }
+  #admin button {
+    padding: 15px;
+    font-size: 1.2rem;
+  }
+  .FlexTable > div {
+    width: 31%;
+    margin-bottom: 40px;
+  }
+}
+#ajouter > h2 {
+  padding-top: 5rem;
+  text-align: center;
+  padding-bottom: 1.4rem;
+  font-size: 2rem;
+}
+#ajouter > .b-form {
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px;
+  width: 100%;
+  max-width: 400px;
+}
+#ajouter > .b-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.6rem;
+  border: 1px solid;
+  border-radius: 4px;
+}
+#ajouter > .b-form textarea {
+  font-size: 1.1rem;
+}
+#ajouter > .b-form button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #2ca2e6;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  #ajouter > h2 {
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+  #ajouter > .b-form {
+    padding: 2.5rem;
+    max-width: 500px;
+    margin-left: 8rem;
+  }
+  #ajouter > .b-form input {
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  #ajouter > .b-form textarea {
+    font-size: 1.2rem;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  #ajouter > .b-form button {
+    padding: 0.7rem;
+    font-size: 1.4rem;
+    transition: 0.3s ease;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #ajouter > h2 {
+    padding-top: 10rem;
+    padding-bottom: 2.5rem;
+    font-size: 3rem;
+  }
+  #ajouter > .b-form {
+    padding: 3rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  #ajouter > .b-form input {
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+  }
+  #ajouter > .b-form textarea {
+    font-size: 1.3rem;
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  #ajouter > .b-form button {
+    padding: 0.8rem;
+    font-size: 1.5rem;
+  }
+}
+#modifier > h2 {
+  padding-top: 5rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  font-size: 2rem;
+}
+#modifier > .b-form {
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px;
+  width: 100%;
+  max-width: 400px;
+}
+#modifier > .b-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.6rem;
+  border: 1px solid;
+  border-radius: 4px;
+}
+#modifier > .b-form textarea {
+  font-size: 1.1rem;
+}
+#modifier > .b-form button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #2ca2e6;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#modifier > .b-form textarea {
+  font-size: 1.1rem;
+}
+#modifier > img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  #modifier > h2 {
+    padding-top: 8rem;
+    padding-bottom: 1.5rem;
+    font-size: 2.5rem;
+  }
+  #modifier > .b-form {
+    padding: 2.5rem;
+    margin-left: 8.5rem;
+    max-width: 500px;
+  }
+  #modifier > .b-form input {
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  #modifier > .b-form textarea {
+    font-size: 1.2rem;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  #modifier > .b-form button {
+    padding: 0.7rem;
+    font-size: 1.4rem;
+  }
+  #modifier > img {
+    margin: 1.5rem auto;
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #modifier {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 5%;
+  }
+  #modifier > h2 {
+    width: 100%;
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+    font-size: 3rem;
+  }
+  #modifier > .b-form {
+    flex: 0 0 45%;
+    margin-left: 0;
+    max-width: none;
+    padding: 3rem;
+    margin-left: 20rem;
+  }
+  #modifier > .b-form input, #modifier > .b-form textarea {
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+  }
+  #modifier > .b-form button {
+    padding: 0.8rem;
+    font-size: 1.5rem;
+  }
+  #modifier > img {
+    flex: 0 0 45%;
+    margin: 0;
+    max-width: 45%;
+    margin-left: 20rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+    align-self: center;
+  }
+}
+#produit > h2 {
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+#product-mosaic {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  padding: 16px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s;
+}
+#product-mosaic h3 {
+  padding-top: 0.5rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  font-size: 2rem;
+}
+#product-mosaic img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4rem;
+  margin-bottom: 1rem;
+}
+#product-mosaic p {
+  margin-bottom: 1rem;
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+#product-mosaic form {
+  display: flex;
+  margin-top: 0.6rem;
+  width: 100%;
+  padding: 0.5rem;
+  max-width: 400px;
+}
+#product-mosaic input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid;
+  border-radius: 4px 0 0 4px;
+}
+#product-mosaic .addToBasket {
+  border: 2px solid;
+  width: 10%;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  #produit > h2 {
+    font-size: 2.2rem;
+    padding: 8rem;
+    padding-bottom: 1.5rem;
+  }
+  #product-mosaic {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1rem;
+  }
+  #product-mosaic > article {
+    width: 48%;
+    margin-bottom: 30px;
+  }
+  #product-mosaic h3 {
+    font-size: 2.2rem;
+  }
+  #product-mosaic img {
+    border-radius: 2rem;
+    margin-left: 5rem;
+  }
+  #product-mosaic input {
+    padding: 10px;
+  }
+  #product-mosaic .addToBasket {
+    width: 15%;
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #produit > h2 {
+    font-size: 2.6rem;
+    padding: 10rem;
+    padding-bottom: 2rem;
+  }
+  #product-mosaic {
+    padding: 2rem;
+    justify-content: space-between;
+  }
+  #product-mosaic > article {
+    width: 30%;
+    margin-bottom: 40px;
+  }
+  #product-mosaic h3 {
+    font-size: 2.4rem;
+    text-align: center;
+    margin-left: 30rem;
+  }
+  #product-mosaic img {
+    border-radius: 1rem;
+    margin-left: 35rem;
+  }
+  #product-mosaic p {
+    font-size: 1.7rem;
+    margin-left: 20em;
+  }
+  #product-mosaic form {
+    max-width: 100%;
+  }
+  #product-mosaic input {
+    padding: 12px;
+    font-size: 1.1rem;
+  }
+  #product-mosaic .addToBasket {
+    width: 20%;
+    font-size: 1.3rem;
+  }
+}
+#popUp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px;
+  z-index: 1000;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  background-color: #ffffff;
+}
+#popUp > .closePopUp {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+#popUp h4 {
+  font-size: 1.6em;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+#popUp p {
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+}
+#popUp img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+#popUp button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #2ca2e6;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  #popUp {
+    max-width: 600px;
+    padding: 30px;
+  }
+  #popUp > .closePopUp {
+    font-size: 1.8rem;
+    top: 15px;
+    right: 20px;
+  }
+  #popUp h4 {
+    font-size: 2em;
+    margin-bottom: 1.5rem;
+  }
+  #popUp p {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  #popUp img {
+    margin-bottom: 30px;
+  }
+  #popUp button {
+    width: auto;
+    padding: 0.75rem 2rem;
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #popUp {
+    max-width: 800px;
+    padding: 40px;
+  }
+  #popUp > .closePopUp {
+    font-size: 2rem;
+    top: 20px;
+    right: 25px;
+  }
+  #popUp h4 {
+    font-size: 2.4em;
+    margin-bottom: 2rem;
+  }
+  #popUp p {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #popUp img {
+    margin-bottom: 40px;
+    max-width: 80%;
+  }
+  #popUp button {
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+  }
+}
+#detail {
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 auto;
+}
+#detail > h2 {
+  padding-bottom: 2rem;
+  padding-top: 8rem;
+  margin-bottom: 20px;
+}
+#detail > .comeBack {
+  display: inline-block;
+  font-size: 24px;
+  color: black;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+}
+#detail > .hardcoreDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+#detail img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+#detail h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.7rem;
+}
+#detail p {
+  line-height: 1.5;
+  font-size: 1.3rem;
+  text-align: justify;
+}
+#detail form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+#detail input[type=text] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid;
+  border-radius: 4px 0 0 4px;
+  flex-grow: 1;
+  max-width: 100px;
+}
+#detail .addToBasket {
+  border: solid;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+#detail .error {
+  color: #f44336;
+  text-align: center;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  #detail {
+    padding: 30px;
+  }
+  #detail > h2 {
+    font-size: 2.5rem;
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+  }
+  #detail > .comeBack {
+    font-size: 28px;
+  }
+  #detail > .hardcoreDetail {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px;
+  }
+  #detail img {
+    max-width: 45%;
+    margin-bottom: 0;
+    margin-right: 30px;
+  }
+  #detail .product-info {
+    flex: 1;
+  }
+  #detail h3 {
+    font-size: 2rem;
+    text-align: left;
+  }
+  #detail p {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  #detail input[type=text] {
+    max-width: 120px;
+  }
+  #detail .addToBasket {
+    padding: 12px 20px;
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #detail {
+    max-width: 1000px;
+    padding: 40px;
+  }
+  #detail > h2 {
+    font-size: 3rem;
+    padding-top: 12rem;
+    padding-bottom: 4rem;
+  }
+  #detail > .comeBack {
+    font-size: 30px;
+  }
+  #detail > .hardcoreDetail {
+    padding: 40px;
+  }
+  #detail img {
+    max-width: 50%;
+    margin-right: 40px;
+  }
+  #detail h3 {
+    font-size: 2.5rem;
+  }
+  #detail p {
+    font-size: 1.6rem;
+    line-height: 1.7;
+  }
+  #detail form {
+    margin-top: 30px;
+  }
+  #detail input[type=text] {
+    max-width: 150px;
+    padding: 12px;
+    font-size: 18px;
+  }
+  #detail .addToBasket {
+    padding: 14px 25px;
+    font-size: 20px;
+  }
+}
+#basket {
+  padding: 10px;
+}
+#basket h2 {
+  padding-top: 5rem;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  text-align: center;
+}
+#basket .basketTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+#basket th {
+  background-color: #000000;
+  padding: 7px;
+  text-align: left;
+  border: 1px solid;
+  font-weight: bold;
+  color: #ffffff;
+}
+#basket td {
+  text-align: center;
+  border: 1px solid;
+}
+#basket .red-button {
+  font-weight: bold;
+  width: 100%;
+}
+#basket .moins, #basket .plus {
+  font-size: 1rem;
+  width: 35%;
+}
+#basket .payer {
+  width: 50%;
+  padding: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  #basket {
+    padding: 20px;
+  }
+  #basket h2 {
+    font-size: 2.5rem;
+    padding-top: 6rem;
+    margin-bottom: 25px;
+  }
+  #basket .basketTable {
+    font-size: 1.1rem;
+  }
+  #basket th, #basket td {
+    padding: 12px;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  #basket .red-button {
+    padding: 8px;
+    font-size: 1.1rem;
+  }
+  #basket .moins, #basket .plus {
+    font-size: 1.1rem;
+    width: 40px;
+    padding: 8px;
+  }
+  #basket .payer {
+    width: 200px;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    margin-top: 25px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #basket {
+    padding: 30px;
+  }
+  #basket h2 {
+    font-size: 3rem;
+    padding-top: 7rem;
+    margin-bottom: 35px;
+  }
+  #basket .basketTable {
+    font-size: 1.2rem;
+    width: 80%;
+    margin: 0 auto;
+  }
+  #basket th, #basket td {
+    padding: 15px;
+    font-size: 1.4rem;
+  }
+  #basket .red-button {
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+  #basket .moins, #basket .plus {
+    font-size: 1.2rem;
+    width: 45px;
+    padding: 10px;
+  }
+  #basket .payer {
+    width: 250px;
+    padding: 1rem;
+    font-size: 1.3rem;
+    margin-top: 35px;
+  }
+}
+#succes {
+  padding: 15px;
+  text-align: center;
+}
+#succes h2 {
+  padding-top: 5rem;
+  font-size: 2rem;
+}
+#succes p {
+  font-size: 1.2rem;
+}
+#succes .retour {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4rem;
+}
+
+@media screen and (min-width: 768px) {
+  #succes {
+    padding: 25px;
+  }
+  #succes h2 {
+    padding-top: 6rem;
+    font-size: 2.5rem;
+  }
+  #succes p {
+    font-size: 1.4rem;
+  }
+  #succes .retour {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #succes {
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  #succes h2 {
+    padding-top: 8rem;
+    font-size: 3rem;
+    margin-bottom: 30px;
+  }
+  #succes p {
+    font-size: 1.6rem;
+    max-width: 70%;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+  #succes .retour {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+  }
+}
+#checkout-form {
+  padding: 20px;
+}
+#checkout-form p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+#checkout-form form {
+  flex-direction: column;
+  align-items: center;
+  padding-left: 1px;
+}
+#checkout-form form .CardElement {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 16px;
+}
+#checkout-form form .Payer {
+  width: 100%;
+  max-width: 320px;
+  padding: 12px;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  #checkout-form {
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  #checkout-form p {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  #checkout-form form .CardElement {
+    padding: 15px;
+    font-size: 18px;
+  }
+  #checkout-form form .Payer {
+    max-width: 800px;
+    padding: 15px;
+    font-size: 18px;
+    margin-top: 30px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #checkout-form {
+    padding: 40px;
+    max-width: 800px;
+  }
+  #checkout-form p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  #checkout-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #checkout-form form .CardElement {
+    padding: 18px;
+    font-size: 20px;
+  }
+  #checkout-form .Payer {
+    max-width: 400px;
+    padding: 18px;
+    font-size: 20px;
+    margin-top: 40px;
+  }
+}
+#payment {
+  padding: 20px;
+}
+#payment h2 {
+  padding-top: 5rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#payment p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  #payment {
+    padding: 30px;
+  }
+  #payment h2 {
+    padding-top: 6rem;
+    font-size: 2rem;
+  }
+  #payment p {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #payment {
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  #payment h2 {
+    padding-top: 7rem;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  #payment p {
+    font-size: 1.4rem;
+    max-width: 80%;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}/*# sourceMappingURL=style.css.map */
