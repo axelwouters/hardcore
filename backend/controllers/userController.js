@@ -159,14 +159,16 @@ module.exports = (UserModel) => { //export est une fonction prennant le modele d
     const deleteUser = async (req, res) => { 
         try{
             //Etape 1: Suppression de l'utilisateur dans la base de donnée
-            const deleteUser = await UserModel.deleteOneUser(req.params.id) //La mission va commencer lorsque le joueur transmet l'id du personnage au pnj de suppression avec UserModel.deleteOneUser(req.params.id)
-            //Le jeu va utiliser await pour attendre la confirmation du pnjj de suppression avant d'aller plus loin
-            //Le pnj de suppression est chargé d'acceder à la bdd pour localiser et supprimer le personnage en utilisant l'ID
-            console.log("supp",deleteUser) //Une fois que la commande de suppression est envoyée, le jeu attend la reponse deleteUser
+            //Appel a la méthode 'deleteOneUser' du modèle avec l'ID récupéré depuis les paramètres de la requête
+            const deleteUser = await UserModel.deleteOneUser(req.params.id) 
+            
+            // Affichage de la réponse de la suppression pour le débogage
+            console.log("supp",deleteUser) 
             console.log("reque", req.params.id)
-            if(deleteUser.code){//Si la suppression a echoué pour une raison quelconque, un code d'erreur de deleteuser.code pourrait etre renvoyé
-                res.json({status: 500, msg: "Oups, une erreur est survenue1!"}) //Dans ce cas, le jeu nous informe le joueur d'un echec de la mission en revoyant le message
-            } else {//Si la suppression réussit, le jeu renvoie un message de confirmation au joueur
+            //Vérification s'il y a une erreur lors de la suppression
+            if(deleteUser.code){
+                res.json({status: 500, msg: "Oups, une erreur est survenue1!"}) 
+            } else {
                 res.json({status: 200, msg: "L'utilisateur à bien été supprimer"}) //Cela confirme que le perso a bien été retiré du jeu et que la mission est accomplie
             }
         } catch(err){//Le catch agit comme un systeme de secours, si une erreur imprévue apparait, le jeu interrompt la mission et envoie un message d'erreur
