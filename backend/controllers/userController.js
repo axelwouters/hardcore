@@ -55,7 +55,7 @@ module.exports = (UserModel) => { //export est une fonction prennant le modele d
     
     const loginUser = async (req, res) => {//pour y entrer il doit prouver son identiter en utilisant l'email et le mot de passe
         try{
-            //Etape 1: Vérification des Identifiants 
+            //Etape 1: Recherche de l'utilisateur par email dans la base de donnée
             const check = await UserModel.getUserByEmail(req.body.email) //Ce code va verifier si un utilsateur existe avec cet email
             if(check.code){//si une erreur arrive pendant la vérification, le check.code detectera l'erreur et il enverra un message d'erreur
                 res.json({status: 500, msg: "Oups, une erreur est survenue!"})
@@ -155,10 +155,10 @@ module.exports = (UserModel) => { //export est une fonction prennant le modele d
         }
     }
 
-    //La fonction deleteuser est comme une mission dans un jeu video ou l'objectif est de supprimer un personnage (utilisateur) de la bdd.
-    //La mission consiste à retirer ce personnage du jeu de façon permanente
-    const deleteUser = async (req, res) => { //Le joueur accepte la mission de supprimer un personnage spécifique
-        try{//Le joueur indique l'ID du personnage qu'il veut supprimer par req.params.id, qui permet d'identier de maniere unique
+    //La fonction pour supprimer un utilisateur
+    const deleteUser = async (req, res) => { 
+        try{
+            //Etape 1: Suppression de l'utilisateur dans la base de donnée
             const deleteUser = await UserModel.deleteOneUser(req.params.id) //La mission va commencer lorsque le joueur transmet l'id du personnage au pnj de suppression avec UserModel.deleteOneUser(req.params.id)
             //Le jeu va utiliser await pour attendre la confirmation du pnjj de suppression avant d'aller plus loin
             //Le pnj de suppression est chargé d'acceder à la bdd pour localiser et supprimer le personnage en utilisant l'ID

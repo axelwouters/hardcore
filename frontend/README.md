@@ -40,7 +40,7 @@ L'ADMINISTRATEUR :
 **npm run dev**
 
 ### Accédez au site depuis votre navigateur à l'adresse suivante :
-    http://localhost:9000
+    http://localhost:9201
 
 ###identifiants
 
