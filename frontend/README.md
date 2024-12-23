@@ -1,13 +1,13 @@
 - Hardcore : site de vente de bombe aérosol de la marque hardcore.
 
    Description :
-**Hardcore** est un site web permettant d'acheter des armes et des accessoires absurde.
+**Hardcore** est un site web permettant d'acheter bombe aérosol de la marque hardcore.
 
 LES VISITEURS :
 
-- Les visiteurs peuvent voir les armes/accessoires présenter sur le site.
+- Les visiteurs peuvent voir les bombes aérosol présenter sur le site.
 - Ils peuvent chercher les articles dans les categories correspondante.
-- Cliquez sur "en savoir plus" qui donne accès à une déscription du produit.
+- Cliquez sur le produit qui donne accès à une déscription du produit.
 - Pour accéder un ajout au panier et accéder au paiement, ils doivent se créer un compte et être connectés.
 
 LES UTILISATEURS :
