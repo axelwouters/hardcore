@@ -4,45 +4,41 @@ const secret = "fsjs38"; //c'est une cle secret pour signer les tokens
 
 module.exports = (UserModel) => { //export est une fonction prennant le modele de l'utilisateur en parametre
 
-    //Mission: Recrutement d'un nouveau héros dans un RPG
-    //Ojectif de mission
-    //Dans ce jeu, le joueur veut inscrire un nouveau héros (utilisateur) dans la bdd du royaume (serveur)
-    //Avant de lui donner accés, il faut vérifier que ce héros n'existe pas déja.
     const saveUser = async (req, res) => { 
        try{
-       //Etape 1: Vérification de l'existence de l'email
-       //On va interroger la bdd pour rechercher un utilisateur avec cet email
+       //Etape 1: Vérification de l'existence de d'un utilisateur avec le même email
+       //On utilise la fonction en dessous pour rechercher si l'email existe déja
          const check = await UserModel.getUserByEmail(req.body.email)
          console.log(check) 
-        //Gestion d'une erreur potentielle lors de la recherche
+        //Vérification d'une erreur pendant la requete
          if(check.code){
-            //Echec: Si une erreur survient pendant cette vérification (check.code)
+            //Echec: Une erreur est survenue lors de la recherche de l'email
             res.json({status: 500, msg: "Oups, une erreur est survenue1!"}) 
              //Succès: Si la requete se passe bien, la mission continue
          } else {
-        //Etape 2: Test de l'unicité de l'email
-        //Vérifie si un résutat existe déja pour cet email
+        //Etape 2: Vérification si l'email existe déjà dans la base de données
         if(check.length > 0){ 
-            //Si un utilisateur existe avec cet email
+            //Si l'email existe déjà, on vérifie si l'email retourné correspond à celui de la requête
                 if(check[0].email === req.body.email){
-                    //Bloque la création si l'email est déjà utilisé
                     res.json({status: 401, msg: "Vous ne pouvez pas créer un compte avec les identifiants"})
-                //Reponse au joueur: Si un héros existe déja, la mission s'arrete, et le joueur est averti qu'il ne peut pas utiliser cet e-mail
+                //Echec: L'email est déja utilisé par un autre compte
                 }
             } else {
-               //Etape 3: Création du compte
-               //Aucun email similaire trouvé, on peut proceder à l'inscription 
-                console.log(req.body)
-                //Appel à la methode de sauvegarde de l'utilisateur
+               //Aucun utilisateur avec cet email dans la base de données, on procède à l'enregistrement
+                console.log(req.body)//Affiche les données reçues pour debug
+                
+                //Enregistrement du nouvel utilisateur dans la base de données
+                //On appelle la fonction en dessous pour créer un nouvel utilisateur
                 const user = UserModel.saveOneUser(req)
-                console.log("ok")
-                //Gestion du résultat de la sauvegarde
-                if(user.code){//
-                    //Echec de l'enregistrement
+                console.log("ok")//Indique que l'enregistrement a été tenté
+                
+                //Vérification d'une erreur pendant l'enregistrement
+                if(user.code){
                     res.json({status: 500, msg: "Oups, une erreur est survenue2!"})
+                    //Echec: Une erreur est survenue pendant l'enregistrement
                 } else { 
-                    //Succès de l'enregistrement
                     res.json({status: 200, msg: "L'utilisateur a bien été enregistré!"})
+                    //Succès: L'utilisateur a été enregistré avec succès
                 }
             }
          }
@@ -102,15 +98,9 @@ module.exports = (UserModel) => { //export est une fonction prennant le modele d
         }
     }
 
-    //Mission: Mise a jour du héros dans un rpg
-    //Objectif de la mission
-    //Dans ce jeu, le joueur doit mettre à jour le profil d'un héros (l'utilisateur)
-    //avec de nouvelles compétences ou information  (prénom, adresse, rôle, etc.).
-    //À la fin, le héros actualisé est renvoyé au joueur pour confirmation.
     const updateUser = async (req, res) => {
         try{
-            //Etape 1 Debut de la mission - Préparer la mise a jour
-            //Le joueur lance la mission en envoyant une requête avec les nouvelles informations du héros
+            //Etape 1 Mise à jour des informations de l'utilisateur dans la base de données
             const user = await UserModel.updateUser(req, req.params.id)
             //Le serveur, jouant le role d'un Grand Maitre Archiviste, prend ces nouvelles info et les transmettre a l'Assistant Archiviste (UserModel.updateUser)
             console.log("user", user)
