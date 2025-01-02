@@ -102,23 +102,22 @@ module.exports = (UserModel) => { //export est une fonction prennant le modele d
         try{
             //Etape 1 Mise à jour des informations de l'utilisateur dans la base de données
             const user = await UserModel.updateUser(req, req.params.id)
-            //Le serveur, jouant le role d'un Grand Maitre Archiviste, prend ces nouvelles info et les transmettre a l'Assistant Archiviste (UserModel.updateUser)
             console.log("user", user)
-            //Etape 2: Validation initiale
-            //Le Grand Maître vérifie si l'Assistant Archiviste a bien réussi la mise à jour
-            if(user.code){//Echec: Si l'assistant retourne une erreur (user.code), la mission echoue immédiatement, et un message est renvoyé au joueur
+            //Verification d'une erreur lors de la mise a jour
+            if(user.code){
+                //Echec: La requete de mise à jour a échoué
                 res.json({status: 500, msg: "Erreur de la mise à jour de l'utilisateur1!"})    
-            } else {//Succès: Si tout s'est bien passé, la mission continue
-                //Etape 3: Confirmer les changements- Obtenir le profil actualisé
-                //Si la mise à jour a été effectué, le Grand Maitre demande une vérification complete des nouvelles données du héros
+            } else {
+                //Succès: La mise à jour semble avoir réussi, on récupère les informations mises à jour
+                //Etape 2: Récupération des nouvelles informations de l'utilisateur
                 const newUser = await UserModel.getOneUser(req.params.id)
                 console.log( "update",newUser)
-                if(newUser.code){ //Echec: Si le profil mis a jour ne peut pas être récupéré (newUser.code), la mission échoue
+
+                if(newUser.code){ 
+                    //Echec: La récupération des informations a échoué
                     res.json({status: 500, msg: "Oups, une erreur est survenue!"})
-                } else {//Succès : Si le Grand Maître récupère les nouvelles données, il les prépare soigneusement
-                    //Etape 4: Compilation des information - Creer le nouveau profil
-                    //Lorsque le Grand Maitre reçoit les information actualisées
-                    //Il prépare un pack d'équipement pour le héros contenant
+                } else {
+                    //Succès: On prépare un objet avec les nouvelles informations de l'utilisateur
                     const myUser = {
                         id: newUser[0].id, //son identifiant
                         firstname: newUser[0].firstname, //son nom et prénom
@@ -130,18 +129,13 @@ module.exports = (UserModel) => { //export est une fonction prennant le modele d
                         phone: newUser[0].phone,
                         role: newUser[0].role //son role dans l'aventure
                     }
-                    //Etape 5: Remise du rapport de mission
-                    //Une fois les informations préparées, Le grand Maitre les envoie au joueur pour validation
+                    //Envoi de la réponse avec le statut de succès et les nouvelles informations
                     res.json({status: 200, msg: "Utilisateur modifier!", newUser: myUser})
-                    //Le joueur peut maintenant voir le profil mis a jour de son héros et continuer l'aventure
                 }
             }//Bloc de gestion des imprévus : catch
         } catch(err){
-            //Comme dans tout RPG, il peut y avoir des imprévus: des bugs dans le script
-            //des erreurs dans la bdd, ou une panne de l'Archiviste
             console.log("error",err)
             res.json({status: 500, msg: "Oups, une erreur est survenue2!"})
-            //Si cela se produit, le Grand Maitre interrompt la mission et renvoie un message au joueur
         }
     }
 

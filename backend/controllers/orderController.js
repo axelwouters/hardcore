@@ -2,99 +2,61 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const withAuth = require('../middleware/withAuth')
 
 module.exports = (HardcoreModel, OrderModel, UserModel, OrderDetailModel) => {
-    
-    //Mission : Création et validation de la commande dans l'univers Hardcore
-    //Dans ce scénario, le joueur doit gérer un système de commande complexe dans un univers marchand. 
-    //L’objectif est de créer une commande, vérifier les produits du panier, ajuster les stocks et finaliser le paiement. 
-    //Chaque étape est une quête à part entière.
 
     const saveOrder = async (req, res) => {
         try {
-            if (!req.body.basket) {//1. Le joueur (représenté par la requête req) commence par présenter son panier (req.body.basket) à l’univers.
-            //2.Condition initiale
-            //Si le panier est absent ou invalide, le marchand refuse de commencer la mission et affiche
+            //Etape 1: Vérification des données du panier
+            if (!req.body.basket) {
+                //Si le panier est vide ou absent, renvoyer une erreur avec un statut 400
                 return res.status(400).json({ status: 400, msg: "Le panier est invalide ou manquant" })
             }
-    
+            //Initialisation du montant total de la commande à 0
             let totalAmount = 0;
-            //Phase 1 : Création de la commande
-            //Le marchand démarre une nouvelle commande en appelant 
+            //Etape 2: Création d'une commande principale
+            // Le `saveOneOrder` enregistre une commande vide avec un montant total initial à 0
             const orderInfos = await OrderModel.saveOneOrder(req.body.users_id, totalAmount);
-            //Validation
-            if (orderInfos.code) {//Si la création échoue
-                //la mission s’arrête immédiatement avec un message d’échec
+            if (orderInfos.code) {
+                //Si une erreur survient lors de l'enregistrement de la commande principale
                 return res.status(500).json({ status: 500, msg: "Echec de l'enregistrement de la commande!" });
             }
-            //Phase 2: Explorationdu panier
-            //Chaque produit du panier est exploré dans une boucle de quête. Le joueur vérifie et traite chaque article un par un.
+            //Recupération de l'identifiant de la commande nouvellement créée
             const id = orderInfos.insertId;
-    
+            
+            //Etape 3: Parcours des produits dans le panier (boucle sur `req.body.basket`)
             for (const b of req.body.basket) {
-                //Étape 1 : Validation des produits
-                //Le joueur demande au marchand les détails du produit
+                //Récupération des informations du produit en base de données
                 const hardcore = await HardcoreModel.getOneHardcore(b.id);
                 if (hardcore.code) {
-                    //Échec potentiel
-                    //Si le produit est introuvable, la mission est interrompue
+                    //Si une erreur survient lors de la récupération des informations du produit
                     throw new Error("Echec de récupération des informations du produit");
                 }
+                //Extraction des informations importantes du produit
+                const idHardcore = hardcore[0].id;
+                const unit_price = parseFloat(hardcore[0].price);
+                const quantity = b.quantityInCart;
                 
-                //Ces trois lignes de code jouent un role crucial dans la mission de gestion de la commande
-                const idHardcore = hardcore[0].id;//On imagine que chaque produit dans la boutique est une carte avec un identifiant unique (idHardcore)
-                //Lorsque tu récupère les informations d'un produit (hardcore[0], on extrait cette clé unique pour l'utiliser dans d'autres étapes de la mission)
-                //Le but: Identifier précisément le produit que le joueur veut acheter. Cela permet de savoir de quel article il s'agit dans le registre de la boutique
-                
-                const unit_price = parseFloat(hardcore[0].price);//Chaque produit a un prix(exemple: 12.50).Cette ligne recupere le prix de l'article
-                //et le transforme en un nombre décimal utilisable pour les calculs (grace à parseFloat)
-                //Le but: Associer un cout unitaire au produit, ce qui sera nécessaire pour calculer le montant total de la commande
-                
-                const quantity = b.quantityInCart;//Le joueur a précisé combien d'exemplaires de cet article il souhaite acheter (quantityInCart).
-                //Cette ligne extrait cette information au panier
-                //Le but: Savoir combien d'unités de cet article il faut valider, vérifier en stock, et facturer
-                
-                //Étape 2 : Vérification du stock
-                //Le joueur vérifie si le stock est suffisant pour la quantité demandée 
                 if(hardcore[0].quantity < quantity) {
                     throw new Error(`Stock insuffisant pour le produit ${idHardcore}`)
                 }
                 
-                //Étape 3 : Enregistrement des détails de la commande
-                //Le joueur valide les informations du produit et enregistre le détail dans la base
                 const detail = await OrderDetailModel.saveOneOrderDetail(id, idHardcore, unit_price, quantity);
                 if (detail.code) {
-                    //Échec potentiel
-                    //Si l’enregistrement échoue, la mission échoue avec un message d’erreur
                     throw new Error("Echec de l'enregistrement du détail de la commande");
                 }
-                
-                //Phase 3 : Mise à jour des stocks
-                //Une fois le détail validé, le stock du produit est ajusté
                 const newQuantity = hardcore[0].quantity - quantity;
                 const updateResult = await HardcoreModel.updateHardcoreQuantity(idHardcore, newQuantity);
-                if (updateResult.code) {//Échec potentiel
-                //Si la mise à jour échoue, un message alerte le joueur
+                if (updateResult.code) {
                 throw new Error(`Echec de la mise à jour du stock pour le produit ${idHardcore}`);
                 }
-                //Phase 4 : Calcul et validation du montant total
-                //À la fin de la boucle, 
-                //le joueur calcule le montant total de la commande en multipliant 
-                //la quantité de chaque produit par son prix unitaire
                 totalAmount += quantity * unit_price;
             }
-            //Une fois tous les produits traités, le montant total est mis à jour dans la commande
             const update = await OrderModel.updateTotalAmount(id, totalAmount);
-            if (update.code) {//Échec potentiel
-            //Si la mise à jour du montant échoue, la mission s’interrompt
+            if (update.code) {
                 throw new Error("Echec de la mise à jour du montant total");
             }
-            //Phase 5 : Fin de la mission
-            //Si toutes les étapes sont réussies 
-            //le jeu envoie un message de succès avec l’identifiant de la commande
             res.json({ status: 200, orderId: id });
-            //Phase 6 : Gestion des imprévus
-        } catch (err) {//Si une erreur survient à n’importe quelle étape, un système d’alerte est déclenché
+        } catch (err) {
             console.error("Erreur dans saveOrder:", err);
-            //Le jeu informe le joueur de l’erreur et lui permet de réessayer
             res.status(500).json({ status: 500, msg: "Echec de l'enregistrement de la commande: " + err.message });
         }
     };
