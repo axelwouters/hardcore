@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { config } from "../config"
 import { Link } from "react-router-dom"
-import PopUp from "./Popup"
 import { useDispatch, useSelector } from "react-redux"
 import { modifyBasket, selectBasket } from "../slices/basketSlice"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -16,7 +15,6 @@ const ArticleDetail = (props) => {
     //On crée des états locaux pour la quantité, les erreurs et la popup
     const [quantity, setQuantity] = useState("")
     const [error, setError] = useState(false)
-    const [isPopUp, setIsPopUp] = useState(false)
     
     //Fonction pour ajouter un produit au panier
     const onClickBasket = (oldBasket, newProduct) => {
@@ -51,32 +49,26 @@ const ArticleDetail = (props) => {
                 //On met a jour le panier dans Redux
                 dispatch(modifyBasket(myBasket))
             }
-            //On affiche la popup de confirmation
-            setIsPopUp(true)
+            
         }
     }
 
     return (<li id="product-mosaic">
-        {/*Affichage de la pop si neccessaire */}
-        {isPopUp && <PopUp 
-            msg={`Vous avez ajouter: ${quantity} bombe aérosol dans votre panier`}
-            onClickClose={()=>{
-                setIsPopUp(false)
-                setQuantity("")
-            }}
-        />}
         {/*Affichage des erreus s'il y en a */}
         {error !== null && <p>{error}</p>}
 
-        {/*Lien vers la page de détail du produit */}
-        <Link className="detail" to={`/detail/${props.prod.id}`}>
+        
         <div>
             <h3>{props.prod.name}</h3>
             <img src={config.pict_url + props.prod.picture} alt={`bombe aérosol hardcore ${props.prod.name} - ${props.prod.description}`}/> 
             <p>{props.prod.description.substr(0,50)}</p>
             <p>prix : {props.prod.price} €</p>
-        </div>
-        </Link>
+            {/*Lien vers la page de détail du produit */}
+            <Link to={`/detail/${props.prod.id}`} className="btn-detail" > En savoir Plus
+            
+            </Link>
+            </div>
+        
 
         {/*Formulaire pour ajouter au panier */}
         <form

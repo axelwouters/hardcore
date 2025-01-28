@@ -37,12 +37,10 @@ return (
             <nav className={`${showLinks ? "show-nav" : "hidden-nav"}`}>
             <img src={Logo} alt="Logo du site représentant une bombe hardcore"></img>                
             
-                <h1>Hardcore</h1>
-           
                 <ul>
                     {/* Lien vers la page d'accueil */}
                     <li>
-                    <Link to="/"><FontAwesomeIcon icon={faHome} />Home </Link>
+                    <Link to="/"><FontAwesomeIcon icon={faHome} /></Link>
                     </li>
                     
                     
@@ -75,6 +73,9 @@ return (
                                 
                             </li>
                             <li>
+                                <Link to="/my-orders">Mes commandes</Link>
+                            </li>
+                            <li>
                                 <a href="#" onClick={logout}>
                                 <FontAwesomeIcon icon={faPersonFalling}/> Logout
                                 </a>
@@ -86,7 +87,7 @@ return (
 
                      {/* Lien vers les produits */}
                     <li>
-                    <Link to="/product"><FontAwesomeIcon icon={faSprayCan} />Produit</Link> 
+                    <Link to="/product"><FontAwesomeIcon icon={faSprayCan} />Produits</Link> 
                     </li>
                     {/* Lien vers le panier avec le nombre d'articles */}
                     <li>
@@ -102,8 +103,6 @@ return (
                 </button>
             </nav>
         </header>
-
-
     
     ) 
 }  

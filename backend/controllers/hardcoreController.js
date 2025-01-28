@@ -3,11 +3,12 @@ const fs = require("fs")
 module.exports = (HardcoreModel) => {
     const saveHardcore = async (req, res) =>{
         try{
+            //Enregistre une nouvelle bombe aérosol
             const hardcore = await HardcoreModel.saveOneHardcore(req)
             console.log(hardcore)
-            if(hardcore.code){
+            if(hardcore.code){//verifie si une erreur est produit
                 res.json({status: 500, msg: "Oups, une erreur est survenue!"})
-            } else {
+            } else {//message de succès
                 res.json({status: 200, msg: "Une bombe aréosol enregistrée!"}) 
             }
         } catch(err){
@@ -17,10 +18,11 @@ module.exports = (HardcoreModel) => {
 
     const updateHardcore = async (req, res) =>{
         try{
+            //Etape 1: On appelle la methode pour mettre a jour, les données de la maj sont passé dans le req
             const hardcore = await HardcoreModel.updateOneHardcore(req, req.params.id)
-            if(hardcore.code){
+            if(hardcore.code){//Etape 2: Verifie si une erreur est produit
                 res.json({status: 500, msg: "Oups, Une erreur est survenue!"})
-            } else {
+            } else {//message de succés
                 res.json({status: 200, msg: "Une bombe aérosol à été modifié!"})
             }
         } catch(err){

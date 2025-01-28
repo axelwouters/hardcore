@@ -1,97 +1,75 @@
-/*Home 320px*/ 
+//home mobile-first 320px
 #bienvenue{
-  padding: 15px;
+  padding: 4rem;
 
-    h1{
-      font-size: 1.8rem;
-    }
     >section{
-        >h2{
-            margin-top: 4rem;
+      max-width: 100%;
+      margin: 0 auto;
+
+        h2{
+          padding-top: 1.5rem;
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-align: center;
+          margin-bottom: 1.5rem;
         }
-        >.collage-gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-           
-            
-            >.gallery-item {
-              position: relative;
-              overflow: hidden;
-              aspect-ratio: 1 / 1;
-              
-             > img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-              }
-            }
+
+        .collage-gallery{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+
+        .gallery-item{
+          position: relative;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 2px 4px;
+          transition: transform 0.3s ease;
+
+          &:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px;
           }
+
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 16/9;
+          }
+        }
     }
+    
 }
 
 @media screen and (min-width: 768px) {
   #bienvenue{
-    padding: 3.5rem;
-
-    h1{
-      font-size: 3rem;
-    }
-
     >section{
-      >h2{
-        margin-top: 5rem;
-        padding-bottom: 1rem;
-        font-size: 3rem;
+     h2{
+       font-size: 2rem;
+     }
+      .collage-gallery{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
       }
-
-      >.collage-gallery{
-        grid-template-columns: repeat(4, 1fr);
-        gap: 4px;
-
-        >.gallery-item{
-          aspect-ratio: 3/2;
-
-            >img{
-              object-fit: cover;
-            }
-        }
-      }
-      
     }
-
-  }
+   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px){
   #bienvenue{
-    padding: 5rem;
-
-    h1{
-      font-size: 4rem;
-      margin-bottom: 2rem;
-    }
-
     >section{
-      >h2{
-        margin-top: 6rem;
-        padding-bottom: 1.5rem;
-        font-size: 3.5rem;
-        text-align: center;
+      h2{
+        padding-top: 5rem;
+        font-size: 2.5rem;
+      }
 
-        >.collage-gallery{
-          grid-template-columns: repeat(5, 1fr);
-          gap: 8px;
-
-          >.gallery-item{
-            aspect-ratio: 16/9;
-            transition: transform 0.3s ease;
-
-            >img{
-              transition: filter 0.3s ease;
-            }
-          }
-        }
+      .collage-gallery{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
       }
     }
   }
 }
+

@@ -93,6 +93,18 @@ export function getAllOrders(){
     })
 }
 
+ //Fonction pour récupérer les commandes
+ export function getUserOrders(){
+    const token = window.localStorage.getItem("hardcore-token");
+    return axios.get(`${config.api_url}/api/v1/order/user`, {headers: {"x-access-token": token}})
+    .then((res)=>{
+        return res.data
+    })
+    .catch(()=>{
+        return err
+    })
+ }
+
 //Les details d''une commande
 export function getOneOrder(id){
     return axios.get(`${config.api_url}/api/v1/order/getOneOrder/${id}`, {headers: {"x-access-token": token}})
@@ -102,4 +114,6 @@ export function getOneOrder(id){
     .catch((err)=>{
         return err
     })
+
+   
 }

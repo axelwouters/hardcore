@@ -1,218 +1,85 @@
+#admin{
+  padding: 1rem;
+  min-height: 100vh;
 
-#admin {
-  padding: 10px;
-  font-size: 14px;
-  padding-top: 6rem;
-
-  
   h2{
-    font-size: 2rem;
-    padding-bottom: 0.5rem;
-    text-align: center;
-  }
-
-  .addhardcore{
     font-size: 1.5rem;
-    padding-bottom: 0.4em;
-    margin: auto;
-  }
-
-  .modifie{
-    color: rgb(255, 255, 255);
-    background-color: $background-color2;
-    font-size: 1.5rem;
-    text-decoration: none;
-    border: solid 2px black;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
     text-align: center;
-    width: 100%;
+    padding-top: 4rem;
   }
 
-  h3{
-    padding-top: 1rem;
-    font-size: 1.4rem;
-  }
+  .admin-tabs{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
 
-  h4{
-    font-size: 1rem;
-  }
-
-  .tableHardcore {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-
-    &.first {
-      margin-top: 15px;
-    }
-
-    th, td {
-      border: 1px solid $secondary-color;
-      padding: 6px;
-      text-align: left;
-      font-weight: bold;
-    }
-
-    th {
-      background-color: $background-color1;
-      font-weight: bold;
-    }
-
-    img {
-      max-width: 60px;
-      height: auto;
-    }
-
-    a {
-      
-      display: inline-block;
-      margin-bottom: 5px;
-    }
-
-    button {
-      @include button-suppresion();
-      display: block;
-      width: 100%;
-      margin-top: 5px;
+    .tab{
+      padding: 0.75rem 1rem;
+      border: none;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
   }
 
-  .FlexTable {
-    > div {
-      margin-bottom: 20px;
-    }
+  .tab-content{
+    background-color: $secondary-color;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px;
   }
+  
 }
 
 @media screen and (min-width: 768px) {
   #admin{
-    padding: 20px;
-    font-size: 16px;
-    padding-top: 8rem;
+    font-size: 2rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
 
-    h2{
-      font-size: 2.5rem;
-      padding-bottom: 1rem;
-    }
+      .admin-tabs{
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
 
-    .addhardcore{
-      font-size: 1.8rem;
-      padding-bottom: 0.6em;
-    }
-
-    .modifie{
-      font-size: 1.7rem;
-      padding: 10px;
-    }
-
-    h3{
-      padding-top: 1.5rem;
-      font-size: 1.6rem;
-    }
-
-    h4{
-      font-size: 1.3rem;
-    }
-
-    .tableHardcore{
-      margin-bottom: 30px;
-
-      &.first{
-        margin-top: 25px;
-      }
-
-      th, td{
-        padding: 10px;
-        text-align: center;
-      }
-
-      img{
-        max-width: 80px;
-      }
-
-      a{
-        margin-bottom: 8px;
-      }
-
-      button{
-        padding: 1rem;
-        font-size: 1.1rem;
-        
-      }
-    }
-
-      .FlexTable{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        >div{
-          width: 48%;
-          margin-bottom: 30px;
+        .tab{
+          padding: 1rem 2rem;
         }
+      }
+
+      .tab-content{
+        padding: 1.5rem;
       }
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1024px) {
   #admin{
-    padding: 30px;
-    font-size: 18px;
-    padding-top: 10rem;
+    padding: 5rem;
+    h2{
+      font-size: 2.2rem;
+      margin-bottom: 2.5rem;
+    }
 
-      h2{
-        font-size: 3rem;
-        padding-bottom: 1.5rem;
+    .admin-tabs{
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto 2.5rem auto;
+
+      .tab{
+        padding: 1.2rem 3rem;
+        font-size: 1.1rem;
+        min-width: 250px;
       }
-
-      .addhardcore{
-        font-size: 2rem;
-        padding-bottom: 0.8em;
-      }
-
-      .modifie{
-        font-size: 1.9rem;
-        padding: 15px;
-      }
-
-      h3{
-        padding-top: 2rem;
-        font-size: 1.8rem;
-      }
-
-      h4{
-        font-size: 1.5rem;
-      }
-
-      .tableHardcore{
-        margin-bottom: 40px;
-
-        &.first{
-          margin-top: 35px;
-        }
-      }
-
-      th, td{
-        padding: 15px;
-      }
-
-      img{
-        max-width: 100px;
-      }
-
-      a{
-        margin-bottom: 10px;
-      }
-
-      button{
-        padding: 15px;
-        font-size: 1.2rem;
-      }
-  }
-
-  .FlexTable{
-    >div{
-      width: 31%;
-      margin-bottom: 40px;
+    }
+    .tab-content{
+      padding: 2.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
     }
   }
 }

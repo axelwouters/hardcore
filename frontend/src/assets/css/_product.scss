@@ -1,157 +1,141 @@
-//Product
 #produit{
-    >h2{
-        padding-top: 5rem;
-        padding-bottom: 1rem;
-        font-size: 1.8rem;
+    padding: 2rem;
+
+    h2{
         text-align: center;
-        margin-left: 3%;
-        margin-right: 3%;
+        font-size: 1.2rem;
+        padding-top: 3rem;
+        margin-bottom: 2rem;
+        font-style: italic;
     }
-}
 
-//Article-Product
-#product-mosaic{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid;
-    padding: 16px;
-    margin-bottom: 20px;
-    transition: box-shadow 0.3s;
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 
-        h3{
-            padding-top: 0.5rem;
-            text-align: center;
-            padding-bottom: 1rem;
-            font-size: 2rem;
+    #product-mosaic{
+        
+        border-radius: 8px;
+        box-shadow: 0 2px 8px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+
+        &:hover{
+            transform: translateY(-5px);
         }
 
-        img{
-            max-width: 100%;
-            height: auto;
-            border-radius: 4rem;
-            margin-bottom: 1rem;
+        div{
+            padding: 1rem;
+
+            h3{
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+
+            img{
+                width: 60%;
+                align-items: center;
+                margin-left: 4rem;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 4px;
+                margin-bottom: 1rem;
+                
+            }
         }
 
         p{
-            margin-bottom: 1rem;
-            color: $primary-color;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
+            margin: 0.5rem 0;
+
+            &:last-of-type{
+                font-weight: bold;
+            }
         }
 
-        form{
-            display: flex;
-            margin-top: 0.6rem;
-            width: 100%;
-            padding: 0.5rem;
-            max-width: 400px;
+        .btn-detail{
+            display: inline-block;
+            color: $primary-color;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            
         }
+    }
+
+    form{
+        display: flex;
+        gap: 0.5rem;
+        padding: 1rem;
+        border-top:1px solid;
 
         input{
-            flex-grow: 1;
-            padding: 8px;
+            flex: 1;
+            padding: 0.5rem;
             border: 1px solid;
-            border-radius: 4px 0 0 4px;
+            border-radius: 4px;
+
+            &:focus{
+                outline: none;
+            }
         }
 
         .addToBasket{
-            border: 2px solid;
-            width: 10%;
+            
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
             cursor: pointer;
         }
+    }
 
-        
+    //Message d'erreur
+    >p{
+        padding: 0.5rem 1rem;
+        margin: 0;
+        text-align: center;
+    }
 }
 
 @media screen and (min-width: 768px) {
     #produit{
-        >h2{
-            font-size: 2.2rem;
-            padding: 8rem;
-            padding-bottom: 1.5rem;
-        }
-    }
 
-    #product-mosaic{
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        padding: 1rem;
-
-        >article{
-            width: 48%;
-            margin-bottom: 30px;
+        h2{
+            font-size: 1.5rem;
         }
 
-        h3{
-            font-size: 2.2rem;
+        ul{
+            grid-template-columns: repeat(2, 1fr);
         }
 
-        img{
-            border-radius: 2rem;
-            margin-left: 5rem;
-        }
-
-        input{
-            padding: 10px;
-        }
-
-        .addToBasket{
-            width: 15%;
-            font-size: 1.2rem;
+        #product-mosaic{
+            img{
+                height: 250px;
+            }
         }
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1024px) {
     #produit{
-        >h2{
-            font-size: 2.6rem;
-            padding: 10rem;
-            padding-bottom: 2rem;
-        }
-    }
-
-    #product-mosaic{
-        padding: 2rem;
-        justify-content: space-between;
-
-        >article{
-            width: 30%;
-            margin-bottom: 40px;
+        h2{
+            padding-top: 7rem;
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
         }
 
-        h3{
-            font-size: 2.4rem;
-            text-align: center;
-            margin-left: 30rem;
-        }
-
-        img{
-            border-radius: 1rem;
-            margin-left: 35rem;
-        }
-
-        p{
-            font-size: 1.7rem;
-            margin-left: 20em;
-           
-        }
-
-        form{
-            max-width: 100%;
-        }
-
-        input{
-            padding: 12px;
-            font-size: 1.1rem;
-        }
-
-        .addToBasket{
-            width: 20%;
-            font-size: 1.3rem;
+        ul{
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 1200px;
+            margin: 0 auto;
         }
     }
 }

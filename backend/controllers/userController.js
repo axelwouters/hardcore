@@ -75,15 +75,15 @@ module.exports = (UserModel) => { //export est une fonction prennant le modele d
                             res.json({status: 500, msg:"Oups, une erreur est survenue!"})
                         } else { //On va préparer les informations du joueur
                             const user = { //le code va rassembler des informations sur le joueur
-                                id: check[0].id, // l'id dans la bdd
-                                firstname: check[0].firstname, // prénom
-                                lastname: check[0].lastname, // nom
-                                email: check[0].email, // l'email
-                                address: check[0].address, // l'addresse
-                                zip: check[0].zip, // code postale
-                                city: check[0].city, // vile
-                                phone: check[0].phone, // téléphone
-                                role: check[0].role // son role (user ou admin)
+                                id: check[0].id, 
+                                firstname: check[0].firstname,
+                                lastname: check[0].lastname, 
+                                email: check[0].email, 
+                                address: check[0].address, 
+                                zip: check[0].zip, 
+                                city: check[0].city, 
+                                phone: check[0].phone, 
+                                role: check[0].role 
                             }
                             res.json({status: 200, token: token, user: user})
                         }
@@ -119,15 +119,15 @@ module.exports = (UserModel) => { //export est une fonction prennant le modele d
                 } else {
                     //Succès: On prépare un objet avec les nouvelles informations de l'utilisateur
                     const myUser = {
-                        id: newUser[0].id, //son identifiant
-                        firstname: newUser[0].firstname, //son nom et prénom
-                        lastname: newUser[0].lastname, //ses coordonnées (adress, ville, téléphone)
+                        id: newUser[0].id, 
+                        firstname: newUser[0].firstname, 
+                        lastname: newUser[0].lastname, 
                         email: newUser[0].email,
                         address: newUser[0].address,
                         zip: newUser[0].zip,
                         city: newUser[0].city,
                         phone: newUser[0].phone,
-                        role: newUser[0].role //son role dans l'aventure
+                        role: newUser[0].role 
                     }
                     //Envoi de la réponse avec le statut de succès et les nouvelles informations
                     res.json({status: 200, msg: "Utilisateur modifier!", newUser: myUser})

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faArrowCircleLeft, faPlusCircle} from "@fortawesome/free-solid-svg-icons"
 import {takeOneHardcore} from "../api/hardcore"
-import PopUp from "../components/Popup"
 
 import { useDispatch, useSelector } from "react-redux"
 import { modifyBasket, selectBasket } from "../slices/basketSlice"
@@ -16,7 +15,6 @@ const Detail = (props) => {
     const dispatch = useDispatch()
     const [quantity, setQuantity] = useState("")
     const [error, setError] = useState(null)
-    const [isPopUp, setIsPopUp] = useState(false)
     const [hardcore, setHardcore] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
 
@@ -60,7 +58,7 @@ const Detail = (props) => {
                     //On le pousse dans le store de redux
                     dispatch(modifyBasket(newBasket))
                 }
-                setIsPopUp(true)
+                
             }
     }
 

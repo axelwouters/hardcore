@@ -1,0 +1,117 @@
+.rgpd{
+ padding: 1.5rem;
+ line-height: 1.6;
+
+ h1{
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-top: 5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 3px solid;
+ }
+
+ h2{
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+    padding-left: 0.8rem;
+    border-left: 4px solid;
+ }
+
+ p{
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+
+    a{
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0 0.2rem;
+    }
+ }
+
+ ul{
+    margin: 1rem 0 1.5rem 1.2rem;
+
+    li{
+        margin-bottom: 0.8rem;
+        font-size: 0.95rem;
+        position: relative;
+        padding-left: 0.5rem;
+
+        &::before{
+            content: "*";
+            position: absolute;
+            left: -1rem;
+            font-weight: bold;
+        }
+
+        &:hover{
+            transform: translateX(5px);
+            transition: transform 0.3s ease;
+        }
+    }
+ }
+}
+
+@media screen and (min-width: 768px) {
+    .rgpd{
+        padding: 2.5rem;
+        margin: 2rem auto;
+        max-width: 90%;
+        border-radius: 10px;
+        box-shadow: 0 2px 15px;
+
+        h1{
+            font-size: 2.2rem;
+        }
+
+        h2{
+            font-size: 1.6rem;
+            padding-left: 1rem;
+        }
+
+        p, ul li{
+            font-size: 1rem;
+        }
+
+        ul{
+            margin-left: 2rem;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .rgpd{
+        padding: 3rem;
+        max-width: 1000px;
+        position: relative;
+
+        h1{
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2{
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            padding-left: 1.2rem;
+        }
+
+        p, ul li{
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        ul{
+            margin-left: 2.5rem;
+
+            li{
+                padding-left: 0.8rem;
+
+                &::before{
+                    left: -1.2rem;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}

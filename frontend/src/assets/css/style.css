@@ -10,10 +10,6 @@
   background-color: #000000;
   color: #ffffff;
 }
-#navigation > nav > h1 {
-  color: #ffffff;
-  text-align: center;
-}
 #navigation > nav > img {
   max-width: 15%;
 }
@@ -101,10 +97,6 @@
     justify-content: space-between;
     padding: 0 2rem;
   }
-  #navigation > nav > h1 {
-    font-size: 1.5rem;
-    margin-right: 2rem;
-  }
   #navigation > nav > img {
     max-width: 10%;
     margin-left: -2rem;
@@ -117,7 +109,7 @@
     background-color: transparent;
   }
   #navigation > nav > ul > li {
-    margin: 0 1rem;
+    margin: 0 0.5rem;
   }
   #navigation > nav > ul > li > a {
     font-size: 1rem;
@@ -137,10 +129,6 @@
   #navigation > nav {
     padding: 0 4rem;
   }
-  #navigation > nav > h1 {
-    font-size: 2rem;
-    margin-right: 3rem;
-  }
   #navigation > nav > img {
     max-width: 8%;
     margin-left: -4rem;
@@ -154,142 +142,128 @@
   }
 }
 #footer {
-  padding: 20px;
-  font-size: 14px;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 2rem 1rem;
 }
-#footer > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 20px 0;
+#footer div {
+  margin-bottom: 2rem;
   text-align: center;
 }
-#footer ul li {
-  margin-bottom: 10px;
+#footer div:last-child {
+  margin-bottom: 0;
 }
-#footer ul li a {
+#footer a {
+  color: #ffffff;
   text-decoration: none;
-  color: #333;
 }
-#footer ul li a p {
-  margin: 0;
+#footer .contact h3 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
-#footer div > div {
-  text-align: center;
+#footer .contact p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
 }
-#footer div > div .italic {
+#footer .contact p a {
+  color: #ffffff;
+}
+#footer .italic {
   font-style: italic;
+  font-size: 0.9rem;
   display: block;
-  margin-bottom: 5px;
+  color: blue;
+  margin-bottom: 0.5rem;
 }
-#footer div > div .bold {
-  font-weight: bold;
+#footer .bold {
+  font-weight: 700;
+  font-size: 1.1rem;
   margin: 0;
 }
 
 @media screen and (min-width: 768px) {
   #footer {
-    padding: 30px;
-    font-size: 16px;
+    padding: 4rem 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
   }
-  #footer > div {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  #footer ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin: 0;
-    text-align: left;
-  }
-  #footer ul li {
-    margin-right: 20px;
-    margin-bottom: 15px;
-  }
-  #footer div > div {
+  #footer div:last-child {
+    grid-column: auto;
     text-align: right;
   }
+  #footer .contact {
+    text-align: center;
+  }
+  #footer .contact h3 {
+    font-size: 1.4rem;
+  }
+  #footer .contact p {
+    font-size: 1.1rem;
+  }
+  #footer .italic {
+    font-size: 1rem;
+  }
+  #footer .bold {
+    font-size: 1.2rem;
+  }
 }
-/*Home 320px*/
 #bienvenue {
-  padding: 15px;
+  padding: 4rem;
 }
-#bienvenue h1 {
-  font-size: 1.8rem;
+#bienvenue > section {
+  max-width: 100%;
+  margin: 0 auto;
 }
-#bienvenue > section > h2 {
-  margin-top: 4rem;
+#bienvenue > section h2 {
+  padding-top: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
-#bienvenue > section > .collage-gallery {
+#bienvenue > section .collage-gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }
-#bienvenue > section > .collage-gallery > .gallery-item {
+#bienvenue > section .gallery-item {
   position: relative;
+  border-radius: 8px;
   overflow: hidden;
-  aspect-ratio: 1/1;
+  box-shadow: 0 2px 4px;
+  transition: transform 0.3s ease;
 }
-#bienvenue > section > .collage-gallery > .gallery-item > img {
+#bienvenue > section .gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px;
+}
+#bienvenue > section .gallery-item img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  aspect-ratio: 16/9;
 }
 
 @media screen and (min-width: 768px) {
-  #bienvenue {
-    padding: 3.5rem;
+  #bienvenue > section h2 {
+    font-size: 2rem;
   }
-  #bienvenue h1 {
-    font-size: 3rem;
-  }
-  #bienvenue > section > h2 {
-    margin-top: 5rem;
-    padding-bottom: 1rem;
-    font-size: 3rem;
-  }
-  #bienvenue > section > .collage-gallery {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-  }
-  #bienvenue > section > .collage-gallery > .gallery-item {
-    aspect-ratio: 3/2;
-  }
-  #bienvenue > section > .collage-gallery > .gallery-item > img {
-    -o-object-fit: cover;
-       object-fit: cover;
+  #bienvenue > section .collage-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 @media screen and (min-width: 1200px) {
-  #bienvenue {
-    padding: 5rem;
+  #bienvenue > section h2 {
+    padding-top: 5rem;
+    font-size: 2.5rem;
   }
-  #bienvenue h1 {
-    font-size: 4rem;
-    margin-bottom: 2rem;
-  }
-  #bienvenue > section > h2 {
-    margin-top: 6rem;
-    padding-bottom: 1.5rem;
-    font-size: 3.5rem;
-    text-align: center;
-  }
-  #bienvenue > section > h2 > .collage-gallery {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
-  }
-  #bienvenue > section > h2 > .collage-gallery > .gallery-item {
-    aspect-ratio: 16/9;
-    transition: transform 0.3s ease;
-  }
-  #bienvenue > section > h2 > .collage-gallery > .gallery-item > img {
-    transition: filter 0.3s ease;
+  #bienvenue > section .collage-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
 }
 .register-form {
@@ -483,180 +457,77 @@
   }
 }
 #admin {
-  padding: 10px;
-  font-size: 14px;
-  padding-top: 6rem;
+  padding: 1rem;
+  min-height: 100vh;
 }
 #admin h2 {
-  font-size: 2rem;
-  padding-bottom: 0.5rem;
-  text-align: center;
-}
-#admin .addhardcore {
   font-size: 1.5rem;
-  padding-bottom: 0.4em;
-  margin: auto;
-}
-#admin .modifie {
-  color: rgb(255, 255, 255);
-  background-color: #2ca2e6;
-  font-size: 1.5rem;
-  text-decoration: none;
-  border: solid 2px black;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
   text-align: center;
-  width: 100%;
+  padding-top: 4rem;
 }
-#admin h3 {
-  padding-top: 1rem;
-  font-size: 1.4rem;
+#admin .admin-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
-#admin h4 {
-  font-size: 1rem;
-}
-#admin .tableHardcore {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-#admin .tableHardcore.first {
-  margin-top: 15px;
-}
-#admin .tableHardcore th, #admin .tableHardcore td {
-  border: 1px solid #002E5D;
-  padding: 6px;
-  text-align: left;
-  font-weight: bold;
-}
-#admin .tableHardcore th {
-  background-color: #ffffff;
-  font-weight: bold;
-}
-#admin .tableHardcore img {
-  max-width: 60px;
-  height: auto;
-}
-#admin .tableHardcore a {
-  display: inline-block;
-  margin-bottom: 5px;
-}
-#admin .tableHardcore button {
-  background-color: #b22222;
-  color: white;
+#admin .admin-tabs .tab {
+  padding: 0.75rem 1rem;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  font-weight: 600;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: block;
-  width: 100%;
-  margin-top: 5px;
+  transition: all 0.3s ease;
 }
-#admin .FlexTable > div {
-  margin-bottom: 20px;
+#admin .tab-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px;
 }
 
 @media screen and (min-width: 768px) {
   #admin {
-    padding: 20px;
-    font-size: 16px;
-    padding-top: 8rem;
-  }
-  #admin h2 {
-    font-size: 2.5rem;
-    padding-bottom: 1rem;
-  }
-  #admin .addhardcore {
-    font-size: 1.8rem;
-    padding-bottom: 0.6em;
-  }
-  #admin .modifie {
-    font-size: 1.7rem;
-    padding: 10px;
-  }
-  #admin h3 {
-    padding-top: 1.5rem;
-    font-size: 1.6rem;
-  }
-  #admin h4 {
-    font-size: 1.3rem;
-  }
-  #admin .tableHardcore {
-    margin-bottom: 30px;
-  }
-  #admin .tableHardcore.first {
-    margin-top: 25px;
-  }
-  #admin .tableHardcore th, #admin .tableHardcore td {
-    padding: 10px;
-    text-align: center;
-  }
-  #admin .tableHardcore img {
-    max-width: 80px;
-  }
-  #admin .tableHardcore a {
-    margin-bottom: 8px;
-  }
-  #admin .tableHardcore button {
+    font-size: 2rem;
     padding: 1rem;
-    font-size: 1.1rem;
+    margin-bottom: 2rem;
   }
-  #admin .FlexTable {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  #admin .admin-tabs {
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
   }
-  #admin .FlexTable > div {
-    width: 48%;
-    margin-bottom: 30px;
+  #admin .admin-tabs .tab {
+    padding: 1rem 2rem;
+  }
+  #admin .tab-content {
+    padding: 1.5rem;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1024px) {
   #admin {
-    padding: 30px;
-    font-size: 18px;
-    padding-top: 10rem;
+    padding: 5rem;
   }
   #admin h2 {
-    font-size: 3rem;
-    padding-bottom: 1.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
   }
-  #admin .addhardcore {
-    font-size: 2rem;
-    padding-bottom: 0.8em;
+  #admin .admin-tabs {
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto 2.5rem auto;
   }
-  #admin .modifie {
-    font-size: 1.9rem;
-    padding: 15px;
+  #admin .admin-tabs .tab {
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+    min-width: 250px;
   }
-  #admin h3 {
-    padding-top: 2rem;
-    font-size: 1.8rem;
-  }
-  #admin h4 {
-    font-size: 1.5rem;
-  }
-  #admin .tableHardcore {
-    margin-bottom: 40px;
-  }
-  #admin .tableHardcore.first {
-    margin-top: 35px;
-  }
-  #admin th, #admin td {
-    padding: 15px;
-  }
-  #admin img {
-    max-width: 100px;
-  }
-  #admin a {
-    margin-bottom: 10px;
-  }
-  #admin button {
-    padding: 15px;
-    font-size: 1.2rem;
-  }
-  .FlexTable > div {
-    width: 31%;
-    margin-bottom: 40px;
+  #admin .tab-content {
+    padding: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 }
 #ajouter > h2 {
@@ -685,7 +556,7 @@
 #ajouter > .b-form button {
   width: 100%;
   padding: 0.5rem;
-  background-color: #2ca2e6;
+  background-color: blue;
   color: #ffffff;
   font-weight: bold;
   font-size: 1.2rem;
@@ -772,7 +643,7 @@
 #modifier > .b-form button {
   width: 100%;
   padding: 0.5rem;
-  background-color: #2ca2e6;
+  background-color: blue;
   color: #ffffff;
   font-weight: bold;
   font-size: 1.2rem;
@@ -856,234 +727,115 @@
     align-self: center;
   }
 }
-#produit > h2 {
-  padding-top: 5rem;
-  padding-bottom: 1rem;
-  font-size: 1.8rem;
+#produit {
+  padding: 2rem;
+}
+#produit h2 {
   text-align: center;
-  margin-left: 3%;
-  margin-right: 3%;
+  font-size: 1.2rem;
+  padding-top: 3rem;
+  margin-bottom: 2rem;
+  font-style: italic;
 }
-
-#product-mosaic {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid;
-  padding: 16px;
-  margin-bottom: 20px;
-  transition: box-shadow 0.3s;
+#produit ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
-#product-mosaic h3 {
-  padding-top: 0.5rem;
+#produit #product-mosaic {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+#produit #product-mosaic:hover {
+  transform: translateY(-5px);
+}
+#produit #product-mosaic div {
+  padding: 1rem;
+}
+#produit #product-mosaic div h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
   text-align: center;
-  padding-bottom: 1rem;
-  font-size: 2rem;
 }
-#product-mosaic img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4rem;
+#produit #product-mosaic div img {
+  width: 60%;
+  align-items: center;
+  margin-left: 4rem;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
   margin-bottom: 1rem;
 }
-#product-mosaic p {
-  margin-bottom: 1rem;
+#produit #product-mosaic p {
+  margin: 0.5rem 0;
+}
+#produit #product-mosaic p:last-of-type {
+  font-weight: bold;
+}
+#produit #product-mosaic .btn-detail {
+  display: inline-block;
   color: #000000;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 1rem;
 }
-#product-mosaic form {
+#produit form {
   display: flex;
-  margin-top: 0.6rem;
-  width: 100%;
-  padding: 0.5rem;
-  max-width: 400px;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-top: 1px solid;
 }
-#product-mosaic input {
-  flex-grow: 1;
-  padding: 8px;
+#produit form input {
+  flex: 1;
+  padding: 0.5rem;
   border: 1px solid;
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px;
 }
-#product-mosaic .addToBasket {
-  border: 2px solid;
-  width: 10%;
-  cursor: pointer;
+#produit form input:focus {
+  outline: none;
 }
-
-@media screen and (min-width: 768px) {
-  #produit > h2 {
-    font-size: 2.2rem;
-    padding: 8rem;
-    padding-bottom: 1.5rem;
-  }
-  #product-mosaic {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 1rem;
-  }
-  #product-mosaic > article {
-    width: 48%;
-    margin-bottom: 30px;
-  }
-  #product-mosaic h3 {
-    font-size: 2.2rem;
-  }
-  #product-mosaic img {
-    border-radius: 2rem;
-    margin-left: 5rem;
-  }
-  #product-mosaic input {
-    padding: 10px;
-  }
-  #product-mosaic .addToBasket {
-    width: 15%;
-    font-size: 1.2rem;
-  }
-}
-@media screen and (min-width: 1200px) {
-  #produit > h2 {
-    font-size: 2.6rem;
-    padding: 10rem;
-    padding-bottom: 2rem;
-  }
-  #product-mosaic {
-    padding: 2rem;
-    justify-content: space-between;
-  }
-  #product-mosaic > article {
-    width: 30%;
-    margin-bottom: 40px;
-  }
-  #product-mosaic h3 {
-    font-size: 2.4rem;
-    text-align: center;
-    margin-left: 30rem;
-  }
-  #product-mosaic img {
-    border-radius: 1rem;
-    margin-left: 35rem;
-  }
-  #product-mosaic p {
-    font-size: 1.7rem;
-    margin-left: 20em;
-  }
-  #product-mosaic form {
-    max-width: 100%;
-  }
-  #product-mosaic input {
-    padding: 12px;
-    font-size: 1.1rem;
-  }
-  #product-mosaic .addToBasket {
-    width: 20%;
-    font-size: 1.3rem;
-  }
-}
-#popUp {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px;
-  z-index: 1000;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  background-color: #ffffff;
-}
-#popUp > .closePopUp {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 1.5em;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-#popUp h4 {
-  font-size: 1.6em;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-#popUp p {
-  margin-bottom: 1.5rem;
-  font-size: 1.6rem;
-}
-#popUp img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-#popUp button {
-  width: 100%;
-  padding: 0.5rem;
-  background-color: #2ca2e6;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 1rem;
+#produit form .addToBasket {
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
 }
+#produit > p {
+  padding: 0.5rem 1rem;
+  margin: 0;
+  text-align: center;
+}
 
 @media screen and (min-width: 768px) {
-  #popUp {
-    max-width: 600px;
-    padding: 30px;
+  #produit h2 {
+    font-size: 1.5rem;
   }
-  #popUp > .closePopUp {
-    font-size: 1.8rem;
-    top: 15px;
-    right: 20px;
+  #produit ul {
+    grid-template-columns: repeat(2, 1fr);
   }
-  #popUp h4 {
-    font-size: 2em;
-    margin-bottom: 1.5rem;
-  }
-  #popUp p {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-  }
-  #popUp img {
-    margin-bottom: 30px;
-  }
-  #popUp button {
-    width: auto;
-    padding: 0.75rem 2rem;
-    font-size: 1.2rem;
+  #produit #product-mosaic img {
+    height: 250px;
   }
 }
-@media screen and (min-width: 1200px) {
-  #popUp {
+@media screen and (min-width: 1024px) {
+  #produit h2 {
+    padding-top: 7rem;
+    font-size: 1.8rem;
     max-width: 800px;
-    padding: 40px;
+    margin: 0 auto 3rem;
   }
-  #popUp > .closePopUp {
-    font-size: 2rem;
-    top: 20px;
-    right: 25px;
-  }
-  #popUp h4 {
-    font-size: 2.4em;
-    margin-bottom: 2rem;
-  }
-  #popUp p {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  #popUp img {
-    margin-bottom: 40px;
-    max-width: 80%;
-  }
-  #popUp button {
-    padding: 1rem 3rem;
-    font-size: 1.4rem;
+  #produit ul {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
 #detail {
@@ -1518,5 +1270,554 @@
     max-width: 80%;
     margin: 0 auto;
     line-height: 1.6;
+  }
+}
+.my-orders-container {
+  padding: 1rem;
+  font-family: "Funnel Sans", sans-serif;
+  color: #000;
+}
+
+.my-orders-title {
+  text-align: center;
+  font-family: "Delius", cursive;
+  font-size: 1.5rem;
+  color: #222848;
+  margin-bottom: 1rem;
+}
+
+.orders-with-navbar {
+  margin-top: 6rem;
+}
+
+.tableHardcore {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.tableHardcore th,
+.tableHardcore td {
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid #000000;
+}
+
+.tableHardcore th {
+  background-color: #c39191;
+  font-weight: bold;
+}
+
+.tableHardcore tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tableHardcore tr:hover {
+  background-color: #ffd19f;
+  cursor: pointer;
+}
+
+.no-orders-message {
+  text-align: center;
+  color: #e9630a;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.no-orders-message span {
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .my-orders-title {
+    font-size: 2rem;
+  }
+  .tableHardcore th,
+  .tableHardcore td {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .my-orders-title {
+    font-size: 3rem;
+    padding-top: 1.4rem;
+  }
+  .tableHardcore th,
+  .tableHardcore td {
+    padding: 1rem;
+    font-size: 2rem;
+  }
+}
+.management {
+  padding: 1rem;
+}
+.management .addhardcore {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.management .tableHardcore-first {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.management .tableHardcore-first thead th {
+  font-weight: 500;
+  text-align: left;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+.management .tableHardcore-first thead th:first-child {
+  width: 80px;
+}
+.management .tableHardcore-first tbody tr {
+  border-bottom: 1px solid;
+}
+.management .tableHardcore-first tbody tr:last-child {
+  border-bottom: none;
+}
+.management .tableHardcore-first tbody tr td {
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+.management .tableHardcore-first tbody tr td img {
+  width: 70px;
+  height: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
+}
+.management .tableHardcore-first tbody tr td[colspan="3"] {
+  text-align: center;
+  padding: 2rem;
+}
+.management .tableHardcore-first tbody tr td:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.management .tableHardcore-first tbody tr td .btn-modifier {
+  text-decoration: none;
+  padding: 1rem;
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #159AD5;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+.management .tableHardcore-first tbody tr button {
+  background-color: #ff0606;
+  color: #ffffff;
+  border: none;
+  padding: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  .management {
+    padding: 1.5rem;
+  }
+  .management .tableHardcore-first thead th {
+    font-size: 2rem;
+  }
+  .management .tableHardcore-first thead th:first-child {
+    width: 100px;
+  }
+  .management .tableHardcore-first tbody td {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .management .tableHardcore-first tbody td img {
+    width: 80px;
+    height: 80px;
+  }
+  .management .tableHardcore-first tbody td:last-child {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .management .tableHardcore-first tbody td:last-child .btn-modifier, .management .tableHardcore-first tbody td:last-child button {
+    min-width: 100px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .management {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .management .addhardcore {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+  }
+  .management .tableHardcore-first thead th {
+    padding: 1.2rem;
+  }
+  .management .tableHardcore-first thead th:first-child {
+    width: 120px;
+  }
+  .management .tableHardcore-first tbody td {
+    padding: 1rem 1.2rem;
+  }
+  .management .tableHardcore-first tbody td img {
+    width: 100px;
+    height: 100px;
+  }
+  .management .tableHardcore-first tbody td:last-child {
+    gap: 1.5rem;
+  }
+  .management .tableHardcore-first tbody td:last-child .btn-modifier, .management .tableHardcore-first tbody td:last-child button {
+    min-width: 120px;
+    padding: 0.7rem;
+  }
+}
+h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.table-Hardcore {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-Hardcore thead {
+  border: solid;
+}
+.table-Hardcore thead tr {
+  padding: 5rem;
+}
+.table-Hardcore thead tr th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: bold;
+  border-left: 3px solid rgb(0, 0, 0);
+}
+.table-Hardcore thead tr th:first-child {
+  border-radius: 4px 0 0 0;
+}
+.table-Hardcore thead tr th:last-child {
+  border-radius: 0 4px 0 0;
+}
+.table-Hardcore tbody {
+  background-color: rgb(255, 248, 166);
+  text-align: center;
+  border: solid;
+}
+.table-Hardcore tbody tr {
+  border: solid 2px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+.table-Hardcore tbody tr:nth-child(even) {
+  background-color: rgb(194, 250, 255);
+}
+.table-Hardcore tbody tr td {
+  padding: 0.75rem;
+  border-bottom: 1px solid;
+  text-align: center;
+  font-weight: bold;
+  border: solid;
+}
+.table-Hardcore tbody tr td:last-child {
+  border-bottom: none;
+}
+.table-Hardcore tbody tr td:before {
+  content: attr(data-label);
+  font-weight: bold;
+  display: block;
+}
+.table-Hardcore tbody tr a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+.table-Hardcore tr, .table-Hardcore td[colspan="4"] {
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+}
+
+@media screen and (min-width: 768px) {
+  h3 {
+    font-size: 2.25rem;
+    margin: 2rem 0;
+    font-weight: bold;
+    position: relative;
+  }
+  h3::after {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: black;
+  }
+  .table-Hardcore {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .table-Hardcore thead {
+    display: table-header-group;
+  }
+  .table-Hardcore tr {
+    padding: 5rem;
+  }
+  .table-Hardcore tr th {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  .table-Hardcore tr th:first-child {
+    border-radius: 4px 0 0 0;
+  }
+  .table-Hardcore tr th:last-child {
+    border-radius: 0 4px 0 0;
+  }
+  tbody {
+    border-top: none;
+  }
+  tbody tr {
+    display: table-row;
+    transition: all 0.3s ease;
+  }
+  tbody tr td {
+    display: table-cell;
+    padding: 1.25rem;
+    vertical-align: middle;
+    border: 1px solid;
+    font-size: 1.2rem;
+  }
+  tbody tr td:before {
+    display: none;
+  }
+  tbody tr a {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  tr, td[colspan="4"] {
+    padding: 3rem;
+    font-size: 1.1rem;
+  }
+}
+#profil {
+  padding: 4rem;
+  min-height: 100vh;
+}
+#profil > section {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+#profil > section > h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+#profil > section > p {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+#profil > section .register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+#profil > section .register-form input {
+  padding: 0.8rem 1rem;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+#profil > section .register-form input:focus {
+  outline: none;
+  border-color: rgb(0, 255, 17);
+  box-shadow: 0 0 0 2px;
+}
+#profil > section .register-form input[type=submit] {
+  color: white;
+  background-color: #000000;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  padding: 1rem;
+}
+#profil > section .supp {
+  background-color: #ff0606;
+  padding: 1rem 2rem;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 1rem auto;
+  width: 100%;
+  max-width: 300px;
+}
+
+@media screen and (min-width: 768px) {
+  #profil > section > h2 {
+    text-align: center;
+    font-size: 3rem;
+  }
+  #profil > section .register-form {
+    margin-left: 1.7rem;
+  }
+  #profil > section .register-form input {
+    padding: 1rem;
+    font-size: 1.3rem;
+  }
+  #profil > section .register-form input[type=submit] {
+    padding: 1.5rem;
+    font-size: 1.3rem;
+  }
+  #profil > section .supp {
+    padding: 1.6rem;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    font-weight: 800;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #profil > section > h2 {
+    font-size: 3.5rem;
+    padding-top: 3.5rem;
+  }
+  #profil > section .register-form {
+    margin-left: 30rem;
+  }
+  #profil > section .register-form input {
+    padding: 1rem;
+    font-size: 1.3rem;
+  }
+  #profil > section .register-form input[type=submit] {
+    padding: 1.8rem;
+    border-radius: 4rem;
+    font-size: 1.7rem;
+  }
+  #profil > section .supp {
+    padding: 2rem;
+    font-size: 1.3rem;
+    border-radius: 2rem;
+    font-weight: 900;
+  }
+}
+.rgpd {
+  padding: 1.5rem;
+  line-height: 1.6;
+}
+.rgpd h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-top: 5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 3px solid;
+}
+.rgpd h2 {
+  font-size: 1.4rem;
+  margin: 2rem 0 1rem;
+  padding-left: 0.8rem;
+  border-left: 4px solid;
+}
+.rgpd p {
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+}
+.rgpd p a {
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 0.2rem;
+}
+.rgpd ul {
+  margin: 1rem 0 1.5rem 1.2rem;
+}
+.rgpd ul li {
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 0.5rem;
+}
+.rgpd ul li::before {
+  content: "*";
+  position: absolute;
+  left: -1rem;
+  font-weight: bold;
+}
+.rgpd ul li:hover {
+  transform: translateX(5px);
+  transition: transform 0.3s ease;
+}
+
+@media screen and (min-width: 768px) {
+  .rgpd {
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px;
+  }
+  .rgpd h1 {
+    font-size: 2.2rem;
+  }
+  .rgpd h2 {
+    font-size: 1.6rem;
+    padding-left: 1rem;
+  }
+  .rgpd p, .rgpd ul li {
+    font-size: 1rem;
+  }
+  .rgpd ul {
+    margin-left: 2rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .rgpd {
+    padding: 3rem;
+    max-width: 1000px;
+    position: relative;
+  }
+  .rgpd h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .rgpd h2 {
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    padding-left: 1.2rem;
+  }
+  .rgpd p, .rgpd ul li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  .rgpd ul {
+    margin-left: 2.5rem;
+  }
+  .rgpd ul li {
+    padding-left: 0.8rem;
+  }
+  .rgpd ul li::before {
+    left: -1.2rem;
+    font-size: 1.2rem;
   }
 }/*# sourceMappingURL=style.css.map */

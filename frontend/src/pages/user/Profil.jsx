@@ -76,7 +76,7 @@ const Profil = (props) => {
     }, [user])
 
     return (
-        <main id="bienvenue">
+        <main id="profil">
 
         <section>
         <h2 style={{textAlign: "center"}}>Mon Profil</h2>
@@ -130,8 +130,8 @@ const Profil = (props) => {
             <input type="submit" name="Enregistrer"/>
         </form>
 
-            <button
-            style={{textAlign: "center", backgroundColor: "red", color:"white", display:"block", margin: "10px auto", padding: "10px"}} onClick={removeUser
+            <button className="supp"
+            onClick={removeUser
                 
             }
             >

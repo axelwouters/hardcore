@@ -1,0 +1,81 @@
+.my-orders-container {
+    padding: 1rem; 
+    font-family: "Funnel Sans", sans-serif;
+    color: #000;
+  }
+
+  .my-orders-title {
+    text-align: center;
+    font-family: "Delius", cursive;
+    font-size: 1.5rem; 
+    color: #222848;
+    margin-bottom: 1rem;
+  }
+
+  .orders-with-navbar {
+    margin-top: 6rem; 
+  }
+
+  .tableHardcore {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.9rem; 
+  }
+
+  .tableHardcore th,
+  .tableHardcore td {
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid #000000;
+  }
+
+  .tableHardcore th {
+    background-color: #c39191;
+    font-weight: bold;
+  }
+
+  .tableHardcore tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .tableHardcore tr:hover {
+    background-color: #ffd19f;
+    cursor: pointer;
+  }
+
+  .no-orders-message {
+    text-align: center;
+    color: #e9630a;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+
+  .no-orders-message span {
+    font-size: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .my-orders-title {
+      font-size: 2rem; 
+    }
+
+    .tableHardcore th,
+    .tableHardcore td {
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px){
+    .my-orders-title{
+        font-size: 3rem;
+        padding-top: 1.4rem;
+    }
+
+    .tableHardcore th,
+    .tableHardcore td{
+        padding: 1rem;
+        font-size: 2rem;
+    }
+  }

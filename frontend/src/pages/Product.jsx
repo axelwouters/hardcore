@@ -15,6 +15,7 @@ const Product = () => {
                         return <ArticleDetail key={b.id} prod={b} />
                     })}
                 </ul>}
+                
         </section>
     )
 }
