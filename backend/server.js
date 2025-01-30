@@ -49,6 +49,7 @@ const userRoutes = require("./routes/userRoutes")
 const authRoutes = require("./routes/authRoutes")
 const hardcoreRoutes = require("./routes/hardcoreRoutes")
 const orderRoutes = require("./routes/orderRoutes")
+const contatcsRoutes = require("./routes/contactsRoutes")
 
 
 
@@ -82,6 +83,7 @@ mysql.createConnection({
     authRoutes(app, db)//Gérer les accès au jeu (connexion, déconnexion)
     hardcoreRoutes(app, db)//Gérer les objets du jeu (bombe hardcore)
     orderRoutes(app, db) //Gérer les récompenses ou achats dans le jeu
+    contatcsRoutes(app, db) //Gerer un formulaire de contacts
     }).catch(err=>console.log(err))
     
 
