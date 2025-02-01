@@ -59,7 +59,7 @@ class ContactModel{
 
     //je modifie le statut du contact marquer lu ou non lu
     static updateContactStatut(id, statut){
-        return db.query('UPDATE contacts SET statut = ? WHERE id = ?', [id, statut])
+        return db.query('UPDATE contacts SET statut = ? WHERE id = ?', [statut, id])
         .then((res)=>{
             return res
         })

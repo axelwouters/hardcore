@@ -15,6 +15,7 @@ import EditHardcore from './pages/admin/hardcore/EditHardcore'
 import OrderDetail from './pages/admin/order/OrderDetail'
 import MyOrders from './pages/user/MyOrders'
 import Rgpd from './pages/Rgpd'
+import Contacts from './pages/Contacts'
 
 import './App.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
@@ -31,6 +32,7 @@ function App() {
             <Route path='/' element={<RequireAuth child={Home} auth={false} admin={false}/>} />
             <Route path='/register' element={<Register/>} />
             <Route path='/login' element={<Login/>} />
+            <Route path='/contacts' element={<Contacts/>} />
             <Route path='/profil' element={<RequireAuth child={Profil} auth={true} admin={false}/>} />
             <Route path='/product' element={<RequireAuth child={Product} auth={false} admin={false} />} />
             <Route path='/detail/:id' element={<RequireAuth child={Detail} auth={false} admin={false} />} />

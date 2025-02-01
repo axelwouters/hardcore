@@ -97,7 +97,6 @@ module.exports = (ContactModel) =>{
     }
 
     
-        
     return{
         createContact,
         deleteContacts,

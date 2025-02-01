@@ -22,9 +22,10 @@ module.exports = (app, db) => {
     app.get('/api/v1/contact/:id', contactsController.getContactById)
     //Je modifie le statut du contact marquer "lu" 
     //Requete SQL OK
-
+    //route postman OK
     app.put('/api/v1/contact/:id/read', contactsController.markAsRead)
     //Je modifie le statut du contact marquer "non lu"
     //Requete SQL OK
+    //route postman OK
     app.put('/api/v1/contact/:id/unread', contactsController.markAsUnread)
 }

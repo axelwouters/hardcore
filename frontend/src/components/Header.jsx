@@ -72,6 +72,12 @@ return (
                                 <Link to="/profil">{user.infos.firstname} {user.infos.lastname.toUpperCase()}</Link>
                                 
                             </li>
+
+                            <li>
+
+                                <Link to="/contacts">Contactez-Nous</Link>
+
+                            </li>
                             <li>
                                 <Link to="/my-orders">Mes commandes</Link>
                             </li>
