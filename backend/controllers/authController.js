@@ -1,7 +1,9 @@
 module.exports = (UserModel) => {
+    //La fonction checkToken va verifier les information de l'utilisateur connecter
     const checkToken = async (req, res) => {
         //Etape 1: Recuper les informations de l'utilisateur connecté
         try{
+            //On appelle la fonction getOneUser et de récuperer les données de l'utilisateur
             const user = await UserModel.getOneUser(req.id)
             if(user.code){
                 res.json({status: 500, msg: "Oups une erreur est survenue!"})

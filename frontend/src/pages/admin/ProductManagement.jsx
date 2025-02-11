@@ -12,6 +12,7 @@ const ProductManagement = () => {
 
   // Charger les produits au montage du composant
   useEffect(() => {
+    //On appel la fonction displayHardcore pour recuperer les produits
     displayHardcores()
       .then((response) => {
         if (response.status === 200) {
@@ -25,6 +26,7 @@ const ProductManagement = () => {
 
   // Fonction pour supprimer un produit
   const onClickDeleteHardcore = (id) => {
+    //Appel la fonction deleteOneHardcore pour supprime un produit
     deleteOneHardcore(id)
       .then((res) => {
         if (res.status === 200) {

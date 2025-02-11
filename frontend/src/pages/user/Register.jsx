@@ -25,6 +25,7 @@ const Register = (props) => {
     const onSubmitForm = (e) => {
         e.preventDefault()
         setError(null)
+        //On creer l'objet qui contient les données du formulaire
         const datas = {
             firstname: firstname,
             lastname: lastname,
@@ -35,6 +36,7 @@ const Register = (props) => {
             city: city,
             phone: phone
         }
+        //On valide le champ de formulaire
         if(!validateFirstname(firstname)){
             setError("Vous devez mettre au moins une majuscule et une miniscule, vous ne devez pas mettre de chiffre, ni de caractère spécial pour votre prénom")
             return
@@ -71,10 +73,11 @@ const Register = (props) => {
             return
         }
         
+        //On envoie les données au serveur pour enregistrer
         addOneUser(datas)
         .then((res)=>{
             if(res.status === 200){
-                setRedirect(true)
+                setRedirect(true)//Si c'est bon alors on retourne a la page login
             } else {
                 setError(res.msg)
             }

@@ -7,6 +7,7 @@ module.exports = (_db)=>{
 }
 
 class UserModel{
+    //On ajoute un nouvel utilisateur en securisant son mdp
     static saveOneUser(req){
         return bcrypt.hash(req.body.password, saltRounds)
          .then((hash) => {
@@ -22,6 +23,7 @@ class UserModel{
          .catch(err=>err)
     }
 
+    //On recupere un utilisateur par son email
     static getUserByEmail(email){
         return db.query(`SELECT * FROM users WHERE email = ?`, [email]) 
         .then((res)=>{
@@ -31,7 +33,7 @@ class UserModel{
             return err
         })
     }
-
+    //On recupere un utilisateur par son ID
     static getOneUser(id){
         return db.query(`SELECT * FROM users WHERE id = ?`, [id]) 
         .then((res)=>{ 
@@ -42,6 +44,7 @@ class UserModel{
         })
     }
 
+    //On met a jour les informations d'un utilisateur
     static updateUser(req, userId){ 
         return db.query(`UPDATE users SET firstname = ?, lastname = ? ,address = ?,zip = ?,city = ?,phone= ? WHERE id = ?`, [req.body.firstname, req.body.lastname, req.body.address, req.body.zip, req.body.city, req.body.phone, userId])
         .then((res)=>{ 
@@ -52,6 +55,7 @@ class UserModel{
         })
     }
 
+    //On met a jour la derniere connexion de l'utilisateur
     static updateConnexion(id){
         return db.query(`UPDATE users SET last_connexion = NOW() WHERE id = ?`, [id]) 
         .then((res)=>{ 
@@ -62,6 +66,7 @@ class UserModel{
         })
     }
 
+    //On supprime un utilisateur par son ID
     static deleteOneUser(id){
         console.log("usermodelid",id)
         return db.query(`DELETE FROM users WHERE id = ?`, [id]) 
@@ -74,6 +79,7 @@ class UserModel{
         })
     }
 
+    //On met a jour le mot de passe de l'utilisateur
     static updatePassword(hashedPassword, userId){ 
         console.log("motdepass", hashedPassword)
         console.log("userid", userId)
@@ -84,6 +90,17 @@ class UserModel{
         })
         .catch((err)=>{ 
             return err 
+        })
+    }
+
+    //On recupere un utilisateur par son ID
+    static getUserById(id){
+        return db.query('SELECT * FROM users WHERE id = ?', [id])
+        .then((res)=>{
+            return res
+        })
+        .catch((err)=>{
+            return err
         })
     }
 }

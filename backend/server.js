@@ -1,13 +1,6 @@
-/* 
-Servuer Backend: Un Serveur Multijoueur pour le jeu hardcore
 
-Ce code est comme créer et gérer un serveur multijoueur dans un jeu vidéo.
-Il configure le monde du jeu (base de données, régles, fonctionnalités) et gère les interactions des joueurs (clients).
-Voici comment il fonctionne étape par étape
-*/
 
-// 1 Creation du serveur de jeu
-//Comparatif: c'est comme installer le moteur principal du jeu, qui permettra de gérer tous les joueurs et leurs actions
+
 const express = require("express") //express est comme le logiciel du serveur qui orchestre tout
 const app = express()
 
@@ -16,11 +9,10 @@ const cors = require("cors") //Autorise les joueurs (ou client) d'autres serveur
 
 const path = require("path")
 
-//2 Gestion des Regles du jeu (Middleware)
-//Comparatif: Les joueurs venant de différentes plateformes (clients) doivent être autorisés à rejoindre le serveur
+
 app.use(cors()) //cors agit comme un administrateur de permissions, autorisant les joueurs externes a se connecter
 
-//Comparatif: Les joueurs peuvent envoyer des fichiers (images, avatar ou ressources) à la bdd
+
 const fileUpload = require('express-fileupload') //fileUpload est comme un système de gestion des inventaires, permettant de stocker des objects (par ex: images des bombes Hardcore)
 
 app.use(fileUpload({
@@ -53,9 +45,8 @@ const contatcsRoutes = require("./routes/contactsRoutes")
 
 
 
-/*3 Connexion a la base de données (Le Coeur du Monde du Jeu)
-*/
-//Comparatif: La base de données (BDD) est comme le coeur du monde virtuel, contenant toutes les informations sur les joueurs, objets, scores, niveaux, etc
+
+
 //La connexion à la BDD est essentielle pour que les joueurs puissent interagir avec le jeu
 mysql.createConnection({
     host: process.env.DB_HOST,

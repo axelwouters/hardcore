@@ -91,7 +91,17 @@
   }
   .show-nav ul{//montre le menu burger        
       width: 100vw;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background-color: $primary-color;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
       visibility: visible;
+      
   }  
   .show-nav span::before{
       transform: rotate(45deg);

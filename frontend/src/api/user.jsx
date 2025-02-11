@@ -4,6 +4,8 @@ import {config} from "../config"
 // Supprimez cette ligne
 // const token = window.localStorage.getItem('hardcore-token')
 
+
+//La fonction qui ajoute un nouvel utilisateur
 export function addOneUser(datas){
     return axios.post(`${config.api_url}/api/v1/user/save`, datas)
     .then((res)=>{
@@ -14,6 +16,7 @@ export function addOneUser(datas){
     })
 }
 
+//La fonction pour connecter un utilisateur
 export function loginUser(datas){
     return axios.post(`${config.api_url}/api/v1/user/login`, datas)
     .then((res)=>{
@@ -24,6 +27,7 @@ export function loginUser(datas){
     })
 }
 
+//Fonction qui permet de mettre a jour l'utilisateur 
 export function updateProfil(datas, id){
     // Récupérer le token au moment de l'appel
     const token = window.localStorage.getItem('hardcore-token')
@@ -45,6 +49,7 @@ export function updateProfil(datas, id){
     })
 }
 
+//Fonction qui supprime l'utilisateur
 export function deleteUser(id){
     // Récupérer le token au moment de l'appel
     const token = window.localStorage.getItem('hardcore-token')
@@ -65,8 +70,9 @@ export function deleteUser(id){
     })
 }
 
+//Fonction qui verifie si le token est valide 
 export function checkMyToken(){
-    const token = window.localStorage.getItem("hardcore-token")
+    const token = window.localStorage.getItem("hardcore-token") //recupere le token stocké
     return axios.get(
         `${config.api_url}/api/v1/users/checkToken`, 
         {

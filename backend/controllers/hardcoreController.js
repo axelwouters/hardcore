@@ -32,6 +32,7 @@ module.exports = (HardcoreModel) => {
 
     const getAllHardcore = async (req, res) => {
         try{ 
+            //On appelle la methode pour recupérer toute les bombes
             const hardcore = await HardcoreModel.getAllHardcore()
             if(hardcore.code){
                 res.json({status: 500, msg: "Oups, Une erreur est survenue!"})
@@ -45,10 +46,12 @@ module.exports = (HardcoreModel) => {
 
     const deleteHardcore = async (req, res) => {
         try{
+            //On appelle la methode pour supprimer une bombe par son id
             const hardcore = await HardcoreModel.getOneHardcore(req.params.id) 
             if(hardcore.code){
                 res.json({status: 500, msg: "Oups, Une erreur est survenue!"})
             } else {
+                //Si la bombe est trouver on la supprime
                const Hardcoredelete = await HardcoreModel.deleteOneHardcore(req.params.id)
                 res.json({msg: "article supprimer"}) 
             }
@@ -59,6 +62,7 @@ module.exports = (HardcoreModel) => {
 
     const getOneHardcore = async (req, res) => {
         try{
+            //On appelle la methode pour recupere une seule bombe en fonction de son Id
             const hardcore = await HardcoreModel.getOneHardcore(req.params.id)
             console.log(hardcore)
             if(hardcore.code){
@@ -72,14 +76,16 @@ module.exports = (HardcoreModel) => {
     }
 
     const path = require('path');
-
+    
+//gere l'enregistrement des image
 const savePicture = async (req, res) => { 
     console.log("REQ HAHAHA", req.files.images.name);
     try {
-        
+        //Si aucun fichier a été trouver dans la requete, il renvoie une erreur
         if (!req.files || Object.keys(req.files).length === 0) {
             res.json({ status: 400, msg: "La photo n'a pas pu être récupérée!" });
         } else { 
+            //On definit le chemin de l'image qui est enregistrer
             const uploadPath = path.join(req.files.images.name); 
 
             req.files.images.mv(uploadPath, (err) => {

@@ -1,23 +1,24 @@
 import { useState, useEffect } from "react"
 
-
-
 const ContactsManagement = () => {
-    const [contacts, setContacts] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
+    const [contacts, setContacts] = useState([]) // stocke la listes des contacts
+    const [loading, setLoading] = useState(true) // On suit les chargement des données
+    const [error, setError] = useState(null) // on stocke eventuelle d'erreur
 
-    const API_BASE_URL = "http://localhost:9500/api/v1/contacts"
+    //On declere l'API pour faciliter les appels
+    const API_BASE_URL = "http://localhost:9500/api/v1/contacts" 
     
     //On recupere la liste des contacts 
     useEffect(() => {
+        //On declare la fonction pour recuperer les contacts
         const fetchContacts = async () => {
             try{
+                //On envoie la requete GET pour recuperer tous les contacts
                 const response = await fetch(`${API_BASE_URL}/all`) 
                 if(!response.ok){
                     throw new error (`Erreur ${response.status}: ${response.statusText}`)
                 }
-                const data = await response.json()
+                const data = await response.json() //reponse JSON
                 setContacts(data.contacts)
             }catch(err){
                 setError(err.message)
@@ -25,13 +26,14 @@ const ContactsManagement = () => {
                 setLoading(false)
             }
         }
-        fetchContacts()
+        fetchContacts()//appel la fonction pour recuperer les contacts
     }, [])
 
     //On supprime le message
     const handleDelete = async (id) => {
         if(!window.confirm("Voulez-vous vraiment supprimer le message ?")) return
         try{
+            //On envoie la fonction DELETE pour supprimer le contact avec l'ID
             const response = await fetch(`http://localhost:9500/api/v1/contact/delete/${id}`, {
                 method: "DELETE",
             })
@@ -47,6 +49,7 @@ const ContactsManagement = () => {
     //marque le message comme lu
   const markAsRead = async (id) => {
     try {
+        //On envoie la requete PUT pour modifier la statut du message en lu
         const response = await fetch(`http://localhost:9500/api/v1/contact/${id}/read`, {
             method: "PUT",
         })
@@ -68,6 +71,7 @@ const ContactsManagement = () => {
 
 const markAsUnread = async (id) => {
     try {
+        //On envoie la requete PUT pour modifier la statut du message en non-lu
         const response = await fetch(`http://localhost:9500/api/v1/contact/${id}/unread`, {
             method: "PUT",
         })
@@ -75,7 +79,7 @@ const markAsUnread = async (id) => {
         if (!response.ok) {
             throw new Error(`Erreur ${response.status} : ${response.statusText}`)
         }
-
+        //met a jour la liste sans recharger la page
         setContacts(
             contacts.map((contact) =>
                 contact.id === id ? { ...contact, statut: "non lu" } : contact

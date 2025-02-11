@@ -6,8 +6,6 @@ import { connectUser } from "../../slices/userSlice"
 import { validateEmail } from "../../../../backend/public/js/utilitise";
 import { validatePassword } from "../../../../backend/public/js/utilitise";
 
-
-
 const Login = (props) => {
 
     const dispatch = useDispatch()

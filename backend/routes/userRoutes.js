@@ -15,5 +15,10 @@ module.exports = (app, db) => {
     app.delete('/api/v1/user/delete/:id', withAuth, userController.deleteUser)
     //Une route de modification de mot de passe
     app.put('/api/v1/user/passwordchange/:id', userController.updatePassword)
+    //une route qui recupere le user par son id
+    app.get('/api/v1/user/:id', (req, res, next) => {
+        console.log("Requête reçue pour l'ID :", req.params.id);
+        next();
+    }, userController.getUserById);
 }
 
