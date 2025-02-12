@@ -1,4 +1,4 @@
-//pk_test_51PwPk4P8IUFD1Oi7rzdPjJFjc7So7we2SxXzl95DU9gOZGrZ1tcrWMdPHbrM3zJEtZAVZGFnK6xaPlvn0WRFa63Q00oIAefGEX
+
 import { loadStripe } from "@stripe/stripe-js"
 import CheckoutForm from "../components/Checkout-form"
 import { Elements } from "@stripe/react-stripe-js"
